@@ -1,0 +1,30 @@
+{
+  "name": "productgroup_master",
+  "base": "PersistedModel",
+  "idInjection": false,
+  "options": {
+    "validateUpsert": false
+  },
+  "properties": {
+    "productgroupId": {
+      "type": "number",
+      "required": true
+    },
+    "productgroupName": {
+      "type": "string",
+      "required": true
+    },
+    "productgroupshortName": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

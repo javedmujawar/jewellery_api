@@ -1,0 +1,12 @@
+{
+  "jewellerydbDS": {
+    "host": "localhost",
+    "port": 3306,
+    "url": "",
+    "database": "jewellerydb",
+    "password": "",
+    "name": "jewellerydbDS",
+    "user": "root",
+    "connector": "mysql"
+  }
+}
