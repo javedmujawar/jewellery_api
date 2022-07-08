@@ -1,7 +1,7 @@
 {
   "name": "productgroup_master",
   "base": "PersistedModel",
-  "idInjection": false,
+  "idInjection": true,
   "options": {
     "validateUpsert": false
   },
