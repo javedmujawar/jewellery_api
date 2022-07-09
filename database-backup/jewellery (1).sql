@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2022 at 02:54 PM
+-- Generation Time: Jul 09, 2022 at 04:52 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `jewellerydb`
+-- Database: `jewellery`
 --
 
 -- --------------------------------------------------------
@@ -121,66 +121,59 @@ INSERT INTO `blood_master` (`bloodgroupId`, `bloodgroup`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category_master`
+-- Table structure for table `category`
 --
 
-CREATE TABLE `category_master` (
-  `categoryId` int(11) NOT NULL,
-  `categoryName` varchar(200) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `category` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `category_master`
+-- Dumping data for table `category`
 --
 
-INSERT INTO `category_master` (`categoryId`, `categoryName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'metal', ' ccxcx ', 0, 1, 1, '2019-05-15 13:51:52', NULL, '2019-06-26 09:09:48', 1, NULL, NULL, NULL, '2019-05-15 11:51:52'),
-(2, 'non metal', 'kalax ', 0, 1, 1, '2019-05-15 13:52:57', NULL, '2019-06-26 09:10:00', 1, '2019-05-15 13:53:20', NULL, NULL, '2019-05-15 11:52:57'),
-(3, 'xzxzxzxxzxcc', ' cxc ', 0, 1, 0, '2019-05-15 14:40:04', NULL, '2019-07-04 07:52:42', 1, '2019-07-04 07:53:09', 1, NULL, '2019-05-15 12:40:04');
+INSERT INTO `category` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Metal', 'Metal', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(2, 'Non Metal', 'Non Metal', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(3, 'Plastic', 'ok', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `color_master`
+-- Table structure for table `color`
 --
 
-CREATE TABLE `color_master` (
-  `colorId` int(11) NOT NULL,
-  `colorName` varchar(200) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `color` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `color_master`
+-- Dumping data for table `color`
 --
 
-INSERT INTO `color_master` (`colorId`, `colorName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'red', 'ss', 0, 1, 1, '2019-05-28 08:39:57', NULL, '2019-06-10 15:10:21', NULL, NULL, NULL, NULL, '2019-05-28 06:39:57'),
-(2, 'blue', '122', 0, 1, 0, '2019-05-28 08:40:06', NULL, '2019-07-04 08:03:07', 26, '2019-07-04 08:03:13', 26, NULL, '2019-05-28 06:40:06'),
-(3, 'Blue', 'cxc ', 0, 1, 1, '2019-06-10 16:16:04', NULL, '2019-07-04 08:11:12', 26, NULL, NULL, NULL, '2019-06-10 14:16:04');
+INSERT INTO `color` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Red', 'RD', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'Blue', 'BL', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -1596,48 +1589,45 @@ INSERT INTO `paymenttype_master` (`paymenttypeId`, `paymentType`, `is_default`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `productgroup_master`
+-- Table structure for table `productgroup`
 --
 
-CREATE TABLE `productgroup_master` (
-  `productgroupId` int(50) NOT NULL,
-  `productgroupName` varchar(50) DEFAULT NULL,
-  `fkproductmaingroupId` int(50) DEFAULT NULL,
-  `productgroupshortName` varchar(50) DEFAULT NULL,
+CREATE TABLE `productgroup` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `productgroup_master`
+-- Dumping data for table `productgroup`
 --
 
-INSERT INTO `productgroup_master` (`productgroupId`, `productgroupName`, `fkproductmaingroupId`, `productgroupshortName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'oppo', NULL, 'p', 'good', 0, 1, 0, '2019-04-09 10:26:07', 1, NULL, NULL, '2019-04-09 10:47:47', 1, NULL, '2019-04-09 08:26:07'),
-(4, 'lava', NULL, 'lv', 'awesome', 0, 1, 0, '2019-04-09 10:26:43', 1, NULL, NULL, '2019-04-09 11:21:36', 1, NULL, '2019-04-09 08:26:43'),
-(5, 'samsung', NULL, 'sm', 'nice', 0, 1, 0, '2019-04-09 10:27:20', 1, NULL, NULL, '2019-04-09 12:33:23', 1, NULL, '2019-04-09 08:27:20'),
-(6, 'vivo', NULL, 'vvssss', 'vv', 0, 1, 1, '2019-04-09 10:32:35', 1, '2019-04-09 12:34:55', 1, NULL, NULL, NULL, '2019-04-09 08:32:35'),
-(7, 'lava', NULL, 'la', 'la', 0, 1, 1, '2019-04-09 10:48:32', 1, '2019-04-09 12:38:04', 1, NULL, NULL, NULL, '2019-04-09 08:48:32'),
-(8, 'redmi', NULL, 'MIx', 'MI', 0, 1, 1, '2019-04-09 10:49:19', 1, '2019-04-09 12:43:57', 1, NULL, NULL, NULL, '2019-04-09 08:49:19'),
-(9, 'sads', NULL, 'sa', 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-09 12:32:48', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-09 10:32:48'),
-(10, 'xx', NULL, 'gb', 'zxzX', 0, 1, 1, '2019-04-09 12:33:08', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-09 10:33:08'),
-(11, 'zxzxz', NULL, 'zxz', 'zzzzzzzzz', 0, 1, 1, '2019-04-09 12:36:38', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-09 10:36:38'),
-(12, 'lkj', NULL, 'jjjjj', 'jkko', 0, 1, 1, '2019-04-09 12:47:05', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-09 10:47:05'),
-(13, 'asasas', NULL, 'as', 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-09 12:49:31', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-09 10:49:31'),
-(14, 'lava', NULL, 'zcz', 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-09 12:52:52', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-09 10:52:52'),
-(15, 'zolo', NULL, 'zl', 'nice one', 0, 1, 1, '2019-04-11 11:58:55', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-11 09:58:55'),
-(16, 'sadasd', NULL, 's', 'ssssswertyuiopuyhtgrfeda', 0, 1, 1, '2019-04-19 10:29:58', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-19 08:29:58'),
-(17, 'zolo', NULL, 'zl', 'splendidi', 0, 1, 1, '2019-04-26 07:42:43', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 05:42:43');
+INSERT INTO `productgroup` (`id`, `name`, `shortName`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'oppo', 'p', 'good', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(4, 'lava', 'lv', 'awesome', NULL, NULL, 2147483647, 1, 0, NULL, NULL, 'A'),
+(5, 'samsung', 'sm', 'nice', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(6, 'vivo', 'vvssss', 'vv', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(7, 'lava', 'la', 'la', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(8, 'redmi', 'MIx', 'MI', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(9, 'sads', 'sa', 'awesome products with splendidi featrurs', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(10, 'xx', 'gb', 'zxzX', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(11, 'zxzxz', 'zxz', 'zzzzzzzzz', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(12, 'rr', 'rr', 'ok', NULL, NULL, 2147483647, 1, 1, 1, 2147483647, 'A'),
+(13, 'asasas', 'as', 'awesome products with splendidi featrurs', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(14, 'lava', 'zcz', 'awesome products with splendidi featrurs', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(15, 'zolo', 'zl', 'nice one', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(16, 'sadasd', 's', 'ssssswertyuiopuyhtgrfeda', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(17, 'zolo', 'zl', 'splendidi', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(18, 'kk', 'kk', 'k', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1665,8 +1655,13 @@ CREATE TABLE `productmaingroup` (
 --
 
 INSERT INTO `productmaingroup` (`id`, `name`, `shortName`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'AA', 'aa', 'description', NULL, NULL, NULL, NULL, 0, NULL, 0, 'A'),
-(2, 'BB', 'bb', 'description', NULL, NULL, NULL, NULL, 0, NULL, 0, 'A');
+(1, 'AA', 'aa', 'description', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
+(2, 'BB', 'bb', 'description', NULL, NULL, NULL, NULL, 0, NULL, 0, 'A'),
+(3, 'my string', 'vvvbbbb', 'testbbb', 0, 0, 2147483647, 1, 0, 0, 0, 'A'),
+(4, 'ss', 'ss', 'ss', NULL, NULL, NULL, NULL, 1, NULL, 0, 'A'),
+(5, 'harsh', 'test', 'ok.', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A'),
+(6, 'ttt', 'ttt', 'thh', 2147483647, 1, NULL, NULL, 1, NULL, 0, 'A'),
+(7, 'my str', 'str.', 'ok.', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -2029,34 +2024,29 @@ INSERT INTO `purchasestone` (`purchasestoneId`, `fkpurchasemainId`, `fkproductId
 -- --------------------------------------------------------
 
 --
--- Table structure for table `purity_master`
+-- Table structure for table `purity`
 --
 
-CREATE TABLE `purity_master` (
-  `purityId` int(11) NOT NULL,
-  `purityName` varchar(200) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `purity` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `purity_master`
+-- Dumping data for table `purity`
 --
 
-INSERT INTO `purity_master` (`purityId`, `purityName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'twenty four', ' 44444 ', 0, 1, 1, '2019-05-15 13:23:16', NULL, '2019-06-26 09:11:44', NULL, NULL, NULL, NULL, '2019-05-15 11:23:16'),
-(2, 'twenty', '  vv', 0, 1, 1, '2019-06-26 08:18:29', NULL, '2019-06-26 09:11:56', NULL, NULL, NULL, NULL, '2019-06-26 06:18:29'),
-(3, 'eighteen', '  dsds', 0, 1, 1, '2019-06-26 09:12:08', NULL, '2019-07-06 07:56:03', NULL, NULL, NULL, NULL, '2019-06-26 07:12:08');
+INSERT INTO `purity` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, '24 caret', '24 caret ok', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -2530,33 +2520,30 @@ INSERT INTO `shape_master` (`shapeId`, `shapeName`, `description`, `is_default`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `size_master`
+-- Table structure for table `size`
 --
 
-CREATE TABLE `size_master` (
-  `sizeId` int(11) NOT NULL,
-  `sizeName` varchar(200) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `size` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `size_master`
+-- Dumping data for table `size`
 --
 
-INSERT INTO `size_master` (`sizeId`, `sizeName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'dfd', '  32323', 0, 1, 1, '2019-05-28 08:37:37', 1, '2019-07-06 10:26:58', 31, NULL, NULL, NULL, '2019-05-28 06:37:37'),
-(2, 'trr', '  21212', 0, 1, 1, '2019-05-28 08:37:45', 1, '2019-07-06 10:26:19', 31, NULL, NULL, NULL, '2019-05-28 06:37:45');
+INSERT INTO `size` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'L', 'L', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'M', 'm', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -2634,35 +2621,31 @@ INSERT INTO `stockinitem` (`stockInItemId`, `fkmainstockinId`, `fkoilstockinId`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subcategory_master`
+-- Table structure for table `subcategory`
 --
 
-CREATE TABLE `subcategory_master` (
-  `subcategoryId` int(11) NOT NULL,
-  `subcategoryName` varchar(100) CHARACTER SET latin1 DEFAULT NULL,
-  `fkcategoryId` int(11) DEFAULT NULL,
-  `description` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `subcategory` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `categoryId` int(12) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `subcategory_master`
+-- Dumping data for table `subcategory`
 --
 
-INSERT INTO `subcategory_master` (`subcategoryId`, `subcategoryName`, `fkcategoryId`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'gold', 1, ' ccc ', 0, 1, 1, '2019-05-15 15:14:33', 1, '2019-06-26 09:10:45', 1, NULL, NULL, NULL, '2019-05-15 13:14:33'),
-(2, 'bentex', 2, ' fvcvc  ', 0, 1, 1, '2019-05-16 06:47:06', 1, '2019-06-26 09:11:14', 1, NULL, NULL, NULL, '2019-05-16 04:47:06'),
-(3, 'silver', 1, ' ff', 0, 1, 1, '2019-06-26 09:11:02', 1, NULL, NULL, NULL, NULL, NULL, '2019-06-26 07:11:02');
+INSERT INTO `subcategory` (`id`, `name`, `description`, `categoryId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'L', 'L', 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'M', 'm', 1, 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -2761,33 +2744,31 @@ INSERT INTO `taluka_master` (`talukaId`, `talukaName`, `talukashortName`, `taluk
 -- --------------------------------------------------------
 
 --
--- Table structure for table `unit_master`
+-- Table structure for table `unit`
 --
 
-CREATE TABLE `unit_master` (
-  `UnitId` bigint(255) NOT NULL,
-  `UnitName` varchar(255) NOT NULL,
-  `ShortName` varchar(50) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `unit` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) NOT NULL,
+  `status` varchar(3) NOT NULL DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `unit_master`
+-- Dumping data for table `unit`
 --
 
-INSERT INTO `unit_master` (`UnitId`, `UnitName`, `ShortName`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, '1 gm', 'fdf', 0, 1, 1, '2019-05-28 08:38:58', NULL, NULL, NULL, NULL, NULL, NULL, '2019-05-28 06:38:58'),
-(9223372036854775807, '10 gm', 'cx', 0, 1, 1, '2019-05-28 08:39:07', NULL, NULL, NULL, NULL, NULL, NULL, '2019-05-28 06:39:07');
+INSERT INTO `unit` (`id`, `name`, `shortName`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'AA', 'aa', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
+(2, 'BBv', 'bbd', NULL, NULL, 2147483647, 1, 1, 1, 2147483647, 'A'),
+(8, 'mm', 'ok', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -3071,9 +3052,51 @@ ALTER TABLE `account_master`
   ADD PRIMARY KEY (`accountId`);
 
 --
+-- Indexes for table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `color`
+--
+ALTER TABLE `color`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `productgroup`
+--
+ALTER TABLE `productgroup`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `productmaingroup`
 --
 ALTER TABLE `productmaingroup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `purity`
+--
+ALTER TABLE `purity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `size`
+--
+ALTER TABLE `size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `subcategory`
+--
+ALTER TABLE `subcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `unit`
+--
+ALTER TABLE `unit`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3091,6 +3114,54 @@ ALTER TABLE `usertype_master`
 --
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `category`
+--
+ALTER TABLE `category`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `color`
+--
+ALTER TABLE `color`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `productgroup`
+--
+ALTER TABLE `productgroup`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT for table `productmaingroup`
+--
+ALTER TABLE `productmaingroup`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT for table `purity`
+--
+ALTER TABLE `purity`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `size`
+--
+ALTER TABLE `size`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `subcategory`
+--
+ALTER TABLE `subcategory`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `unit`
+--
+ALTER TABLE `unit`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `userregistration_master`

@@ -1,16 +1,12 @@
 {
-  "name": "productmaingroup",
+  "name": "purity",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
-    "validateUpsert": false
+    "validateUpsert": true
   },
   "properties": {
     "name": {
-      "type": "string",
-      "required": true
-    },
-    "shortName": {
       "type": "string",
       "required": true
     },
@@ -19,37 +15,29 @@
       "required": true
     },
     "createdDttm": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "createdBy": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "updatedDttm": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "updatedBy": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "isDeleted": {
       "type": "number",
-      "required": false,
       "default": 0
     },
     "deletedBy": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "deletedDttm": {
-      "type": "number",
-      "required": false
+      "type": "number"
     },
     "status": {
       "type": "string",
-      "required": false,
       "default": "A"
     }
   },
