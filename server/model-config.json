@@ -13,11 +13,35 @@
       "./mixins"
     ]
   },
-  "productgroup_master": {
+  "productmaingroup": {
     "dataSource": "jewellerydbDS",
     "public": true
   },
-  "productmaingroup": {
+  "productgroup": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "unit": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "purity": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "category": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "subcategory": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "color": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "size": {
     "dataSource": "jewellerydbDS",
     "public": true
   }
