@@ -1,0 +1,85 @@
+{
+    "name": "gst",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "shortName": {
+        "type": "string",
+        "required": true
+      },     
+      "percentageValue": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": true
+      },
+      "igstValue": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": true
+        
+      },
+      "cgstValue": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": true
+      },
+      "sgstValue": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "required": false
+      },
+      "createdDttm": {
+        "type": "number"
+      },
+      "createdBy": {
+        "type": "number"
+      },
+      "updatedDttm": {
+        "type": "number"
+      },
+      "updatedBy": {
+        "type": "number"
+      },
+      "isDeleted": {
+        "type": "number",
+        "default": 0
+      },
+      "deletedBy": {
+        "type": "number"
+      },
+      "deletedDttm": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "default": "A"
+      }
+    },
+    "validations": [],  
+    "acls": [],
+    "methods": {}
+  }
+  

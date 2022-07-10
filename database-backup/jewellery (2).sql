@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 09, 2022 at 04:52 PM
+-- Generation Time: Jul 10, 2022 at 06:06 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -832,74 +832,64 @@ INSERT INTO `gender` (`genderId`, `gender`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `gst_master`
+-- Table structure for table `gst`
 --
 
-CREATE TABLE `gst_master` (
-  `gstId` bigint(20) NOT NULL,
-  `gstName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `gstshortName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `gstpercentageValue` float(18,2) DEFAULT NULL,
+CREATE TABLE `gst` (
+  `id` bigint(20) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `shortName` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `percentageValue` float(18,2) DEFAULT NULL,
   `igstValue` float(18,2) DEFAULT NULL,
   `cgstValue` float(18,2) DEFAULT NULL,
   `sgstValue` float(18,2) DEFAULT NULL,
   `description` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(1) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(2) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `gst_master`
+-- Dumping data for table `gst`
 --
 
-INSERT INTO `gst_master` (`gstId`, `gstName`, `gstshortName`, `gstpercentageValue`, `igstValue`, `cgstValue`, `sgstValue`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'gold', 'gold', 10.00, 5.00, 5.00, 10.00, ' hiii  ', 0, 1, 1, '2019-06-11 15:08:38', NULL, '2019-06-11 15:09:19', NULL, NULL, NULL, NULL, '2019-06-11 13:08:38'),
-(2, 'silver', 'silver', 20.00, 10.00, 10.00, 20.00, ' bye', 0, 1, 1, '2019-06-11 15:09:40', NULL, NULL, NULL, NULL, NULL, NULL, '2019-06-11 13:09:40'),
-(3, 'Diamond', 'Diamond', 30.00, 15.00, 15.00, 30.00, ' huh', 0, 1, 1, '2019-06-11 15:10:20', NULL, NULL, NULL, NULL, NULL, NULL, '2019-06-11 13:10:20');
+INSERT INTO `gst` (`id`, `name`, `shortName`, `percentageValue`, `igstValue`, `cgstValue`, `sgstValue`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'slab 1', 'slab 1', 1.00, 1.00, 1.00, 1.00, 'ok.', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `hsnsac_master`
+-- Table structure for table `hsnsac`
 --
 
-CREATE TABLE `hsnsac_master` (
-  `hsnsacId` int(50) NOT NULL,
-  `hsnsacName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `hsnsacshortName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `hsnsacCode` int(50) NOT NULL,
-  `hsnsacpercentageValue` varchar(255) CHARACTER SET latin1 NOT NULL,
+CREATE TABLE `hsnsac` (
+  `id` int(50) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `shortName` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
+  `code` int(50) DEFAULT NULL,
+  `percentageValue` float(18,2) DEFAULT NULL,
   `description` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `is_default` tinyint(4) NOT NULL DEFAULT '0',
-  `is_on` tinyint(4) NOT NULL DEFAULT '1',
-  `is_active` tinyint(4) NOT NULL DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `hsnsac_master`
+-- Dumping data for table `hsnsac`
 --
 
-INSERT INTO `hsnsac_master` (`hsnsacId`, `hsnsacName`, `hsnsacshortName`, `hsnsacCode`, `hsnsacpercentageValue`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'Petrol Oil', 'PHSNSAC', 0, '25', ' Petrol HSN SAC ', 0, 1, 1, '2019-04-27 07:17:55', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 05:17:55'),
-(2, 'Petrol', 'PET', 0, '25', ' ', 0, 1, 1, '2019-04-27 08:33:28', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 06:33:28'),
-(3, 'Speed Oil', 'Oil', 0, '12', ' Speed Oil ', 0, 1, 1, '2019-04-27 12:54:18', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 10:54:18');
+INSERT INTO `hsnsac` (`id`, `name`, `shortName`, `code`, `percentageValue`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'HSN1', 'hsn 1', 1, 0.00, 'ok', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1655,9 +1645,9 @@ CREATE TABLE `productmaingroup` (
 --
 
 INSERT INTO `productmaingroup` (`id`, `name`, `shortName`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'AA', 'aa', 'description', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
+(1, 'AA', 'aa', 'ok', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
 (2, 'BB', 'bb', 'description', NULL, NULL, NULL, NULL, 0, NULL, 0, 'A'),
-(3, 'my string', 'vvvbbbb', 'testbbb', 0, 0, 2147483647, 1, 0, 0, 0, 'A'),
+(3, 'my string', 'vvvbbbb', 'testbbb', 0, 0, 2147483647, 1, 1, 1, 2147483647, 'A'),
 (4, 'ss', 'ss', 'ss', NULL, NULL, NULL, NULL, 1, NULL, 0, 'A'),
 (5, 'harsh', 'test', 'ok.', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A'),
 (6, 'ttt', 'ttt', 'thh', 2147483647, 1, NULL, NULL, 1, NULL, 0, 'A'),
@@ -2489,33 +2479,29 @@ INSERT INTO `scheme_master` (`schemeId`, `schemeName`, `fkinstallationtypeId`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `shape_master`
+-- Table structure for table `shape`
 --
 
-CREATE TABLE `shape_master` (
-  `shapeId` int(11) NOT NULL,
-  `shapeName` varchar(200) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `shape` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `shape_master`
+-- Dumping data for table `shape`
 --
 
-INSERT INTO `shape_master` (`shapeId`, `shapeName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'jsjsddh', ' dfddfdf', 0, 1, 0, '2019-05-16 07:33:58', NULL, NULL, NULL, '2019-05-16 07:34:29', NULL, NULL, '2019-05-16 05:33:58'),
-(2, 'kjkaa', ' xzxzx', 0, 1, 1, '2019-05-16 07:34:22', NULL, NULL, NULL, NULL, NULL, NULL, '2019-05-16 05:34:22');
+INSERT INTO `shape` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Round', 'RND.', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -3064,6 +3050,18 @@ ALTER TABLE `color`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `gst`
+--
+ALTER TABLE `gst`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `hsnsac`
+--
+ALTER TABLE `hsnsac`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `productgroup`
 --
 ALTER TABLE `productgroup`
@@ -3079,6 +3077,12 @@ ALTER TABLE `productmaingroup`
 -- Indexes for table `purity`
 --
 ALTER TABLE `purity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `shape`
+--
+ALTER TABLE `shape`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3128,6 +3132,18 @@ ALTER TABLE `color`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `gst`
+--
+ALTER TABLE `gst`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `hsnsac`
+--
+ALTER TABLE `hsnsac`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `productgroup`
 --
 ALTER TABLE `productgroup`
@@ -3143,6 +3159,12 @@ ALTER TABLE `productmaingroup`
 -- AUTO_INCREMENT for table `purity`
 --
 ALTER TABLE `purity`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `shape`
+--
+ALTER TABLE `shape`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
