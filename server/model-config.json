@@ -44,5 +44,18 @@
   "size": {
     "dataSource": "jewellerydbDS",
     "public": true
+  },
+  "shape": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "hsnsac": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "gst": {
+    "dataSource": "jewellerydbDS",
+    "public": true
   }
+
 }
