@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2022 at 06:06 PM
+-- Generation Time: Jul 11, 2022 at 07:20 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -2631,7 +2631,7 @@ CREATE TABLE `subcategory` (
 
 INSERT INTO `subcategory` (`id`, `name`, `description`, `categoryId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'L', 'L', 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'M', 'm', 1, 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A');
+(2, 'M', 'm', 2, 2147483647, 1, NULL, NULL, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
