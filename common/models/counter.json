@@ -1,0 +1,49 @@
+{
+    "name": "counter",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "description": {
+        "type": "string",
+        "required": false
+      },
+      "createdDttm": {
+        "type": "number"
+      },
+      "createdBy": {
+        "type": "number"
+      },
+      "updatedDttm": {
+        "type": "number"
+      },
+      "updatedBy": {
+        "type": "number"
+      },
+      "isDeleted": {
+        "type": "number",
+        "default": 0
+      },
+      "deletedBy": {
+        "type": "number"
+      },
+      "deletedDttm": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "default": "A"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  
