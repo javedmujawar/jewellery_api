@@ -21,6 +21,10 @@
     "dataSource": "jewellerydbDS",
     "public": true
   },
+  "productsubgroup": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
   "unit": {
     "dataSource": "jewellerydbDS",
     "public": true
@@ -56,6 +60,31 @@
   "gst": {
     "dataSource": "jewellerydbDS",
     "public": true
+  },  
+  "warehouse": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "bank": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "paymenttype": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "counter": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "country": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "state": {
+    "dataSource": "jewellerydbDS",
+    "public": true
   }
+  
 
 }

@@ -1,0 +1,61 @@
+{
+    "name": "bank",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": false
+    },
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "shortName": {
+        "type": "string",
+        "required": false
+      },
+      "address": {
+        "type": "string",
+        "required": false
+      },
+      "createdDttm": {
+        "type": "number",
+        "required": false
+      },
+      "createdBy": {
+        "type": "number",
+        "required": false
+      },
+      "updatedDttm": {
+        "type": "number",
+        "required": false
+      },
+      "updatedBy": {
+        "type": "number",
+        "required": false
+      },
+      "isDeleted": {
+        "type": "number",
+        "required": false,
+        "default": 0
+      },
+      "deletedBy": {
+        "type": "number",
+        "required": false
+      },
+      "deletedDttm": {
+        "type": "number",
+        "required": false
+      },
+      "status": {
+        "type": "string",
+        "required": false,
+        "default": "A"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  

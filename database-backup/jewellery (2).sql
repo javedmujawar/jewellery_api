@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2022 at 07:20 AM
+-- Generation Time: Jul 11, 2022 at 04:17 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -61,37 +61,31 @@ INSERT INTO `account_master` (`accountId`, `accountName`, `fkaccounttypeId`, `ac
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bank_master`
+-- Table structure for table `bank`
 --
 
-CREATE TABLE `bank_master` (
-  `bankId` bigint(50) NOT NULL,
-  `bankName` varchar(255) NOT NULL,
-  `bankshortName` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `bank` (
+  `id` int(50) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `shortName` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) NOT NULL,
+  `status` varchar(3) NOT NULL DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `bank_master`
+-- Dumping data for table `bank`
 --
 
-INSERT INTO `bank_master` (`bankId`, `bankName`, `bankshortName`, `address`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'Bank Of Maharshtra', 'BOM', 'Nesari', 0, 1, 1, '2019-04-23 06:54:32', 1, '2019-04-25 12:40:40', 1, NULL, NULL, NULL, '2019-04-23 04:54:32'),
-(2, 'Bank Of India', 'BOI', ' Gadhinglaj', 0, 1, 1, '2019-04-25 12:41:48', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-25 10:41:48'),
-(3, 'syndicate bank', 'Sb', ' asdfgh', 0, 1, 1, '2019-04-26 06:19:01', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 04:19:01'),
-(4, 'asdfghjkl', 'zxcvbn', ' zxcvbn', 0, 1, 0, '2019-04-26 06:23:33', 1, NULL, NULL, '2019-07-04 07:35:55', 26, NULL, '2019-04-26 04:23:33'),
-(5, 'Bank Of Maharshtra', 'BOI', '  ', 0, 1, 0, '2019-05-28 15:26:54', NULL, '2019-07-04 07:36:13', 26, '2019-07-04 07:36:18', 26, NULL, '2019-05-28 13:26:54');
+INSERT INTO `bank` (`id`, `name`, `shortName`, `address`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'UCO', 'UCO', 'Shivaji University , Kolhapur.', 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(2, 'Bank of India', 'B.O.I', 'Rajarampuri, Kolhapur-416008', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -145,7 +139,8 @@ CREATE TABLE `category` (
 INSERT INTO `category` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Metal', 'Metal', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
 (2, 'Non Metal', 'Non Metal', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
-(3, 'Plastic', 'ok', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
+(3, 'Plastic', 'ok', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A'),
+(4, 'mn', NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -221,70 +216,58 @@ INSERT INTO `company_master` (`companyid`, `companyName`, `companyheadOffice`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `counter_master`
+-- Table structure for table `counter`
 --
 
-CREATE TABLE `counter_master` (
-  `counterId` int(20) NOT NULL,
-  `counterName` varchar(200) NOT NULL,
-  `description` varchar(200) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `counter` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `counter_master`
+-- Dumping data for table `counter`
 --
 
-INSERT INTO `counter_master` (`counterId`, `counterName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'as', ' asdfg', 0, 1, 1, '2019-06-25 21:46:47', 1, NULL, NULL, NULL, NULL, NULL, '2019-06-25 19:46:47'),
-(2, 'zx', ' zxcv', 0, 1, 0, '2019-06-25 21:48:58', 1, NULL, NULL, '2019-06-25 22:05:16', 1, NULL, '2019-06-25 19:48:58'),
-(3, 'qwe', ' fdsa', 0, 1, 1, '2019-06-25 22:05:05', 1, NULL, NULL, NULL, NULL, NULL, '2019-06-25 20:05:05'),
-(4, 'wewe', '144', 0, 1, 1, '2019-06-25 10:09:29', 1, '2019-07-04 08:54:41', 1, NULL, NULL, NULL, '2019-06-25 08:09:29');
+INSERT INTO `counter` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Counter 1', 'Cash Counter.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'Counter2', NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `country_master`
+-- Table structure for table `country`
 --
 
-CREATE TABLE `country_master` (
-  `countryId` bigint(20) NOT NULL,
-  `shortName` varchar(50) NOT NULL,
-  `countryName` varchar(50) NOT NULL,
-  `phoneCode` int(10) NOT NULL,
-  `is_default` tinyint(4) NOT NULL DEFAULT '0',
-  `is_on` tinyint(4) NOT NULL DEFAULT '1',
-  `is_active` tinyint(4) NOT NULL DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `country` (
+  `id` int(50) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `shortName` varchar(255) DEFAULT NULL,
+  `phoneCode` int(12) NOT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) NOT NULL,
+  `status` varchar(3) NOT NULL DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `country_master`
+-- Dumping data for table `country`
 --
 
-INSERT INTO `country_master` (`countryId`, `shortName`, `countryName`, `phoneCode`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'IND', 'India', 91, 0, 1, 1, '2019-04-27 06:31:52', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 04:31:52'),
-(2, 'SA', 'South Africa', 99, 0, 1, 1, '2019-05-09 13:19:15', 1, NULL, NULL, NULL, NULL, NULL, '2019-05-09 11:19:15'),
-(3, 'RSA', 'Rusia', 92, 0, 1, 1, '2019-05-09 13:22:07', 1, '2019-05-09 13:22:46', 5, NULL, NULL, NULL, '2019-05-09 11:22:07'),
-(4, 'ENG', 'England', 94, 0, 1, 1, '2019-05-09 13:24:51', 5, '2019-07-04 09:02:42', 26, NULL, NULL, NULL, '2019-05-09 11:24:51'),
-(5, 'Shr', 'Shrilanka', 0, 0, 1, 0, '2019-05-14 08:04:37', 1, '2019-05-14 08:05:00', 1, '2019-05-14 08:05:21', 1, NULL, '2019-05-14 06:04:37');
+INSERT INTO `country` (`id`, `name`, `shortName`, `phoneCode`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'India', 'INDIA', 91, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -1545,36 +1528,29 @@ INSERT INTO `opening_amount` (`openingAmountId`, `openingAmount`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `paymenttype_master`
+-- Table structure for table `paymenttype`
 --
 
-CREATE TABLE `paymenttype_master` (
-  `paymenttypeId` int(11) NOT NULL,
-  `paymentType` varchar(50) CHARACTER SET latin1 DEFAULT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `paymenttype` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `paymenttype_master`
+-- Dumping data for table `paymenttype`
 --
 
-INSERT INTO `paymenttype_master` (`paymenttypeId`, `paymentType`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'Cash', 0, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-02-27 07:11:15'),
-(2, 'RTGS', 0, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-02-27 07:11:30'),
-(3, 'NEFT', 0, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-02-27 07:11:45'),
-(4, 'Check', 0, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-02-27 07:12:06'),
-(5, 'DD', 0, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2019-02-27 07:12:19'),
-(6, 'App', 0, 1, 1, '2019-06-14 10:56:12', 1, '2019-06-14 11:06:46', 1, NULL, NULL, NULL, '2019-06-14 08:56:12');
+INSERT INTO `paymenttype` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Cash', 'Cash Mode Payment.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1660,50 +1636,28 @@ INSERT INTO `productmaingroup` (`id`, `name`, `shortName`, `description`, `creat
 --
 
 CREATE TABLE `productsubgroup` (
-  `productsubgroupId` int(50) NOT NULL,
-  `productsubgroupName` varchar(50) DEFAULT NULL,
-  `productsubgroupshortName` varchar(50) DEFAULT NULL,
-  `fkproductmaingroupId` int(50) DEFAULT NULL,
-  `fkproductgroupId` int(50) DEFAULT NULL,
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
+  `maingroupId` int(12) DEFAULT NULL,
+  `groupId` int(12) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) NOT NULL,
+  `status` varchar(3) NOT NULL DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `productsubgroup`
 --
 
-INSERT INTO `productsubgroup` (`productsubgroupId`, `productsubgroupName`, `productsubgroupshortName`, `fkproductmaingroupId`, `fkproductgroupId`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'vivo vs', 'vs', NULL, NULL, 'ghlbijnklm', 0, 1, 1, '2019-04-12 10:28:45', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-12 08:28:45'),
-(2, 'A', 'S', NULL, NULL, 'v', 0, 1, 1, '2019-04-12 10:29:14', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-12 08:29:14'),
-(3, 'SS', 'S', NULL, 5, 'awesome', 0, 1, 1, '2019-04-12 10:30:41', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-12 08:30:41'),
-(4, 'MKOM', 'UIUVY', NULL, 5, 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-12 10:33:39', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-12 08:33:39'),
-(5, 'vs', 'vv', NULL, 6, '8768686', 0, 1, 1, '2019-04-15 09:49:27', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-15 07:49:27'),
-(6, 'ss', 's', NULL, 6, 'nice', 0, 1, 1, '2019-04-15 09:52:30', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-15 07:52:30'),
-(7, 'ASAsa', 'scds', NULL, 5, 'ghlbijnklm', 0, 1, 1, '2019-04-19 10:29:18', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-19 08:29:18'),
-(8, 'vivo', 'vv', NULL, 6, 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-26 08:01:27', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:01:27'),
-(9, 'asdsa', 'sadsa', NULL, 6, 'ghlbijnklm', 0, 1, 1, '2019-04-26 08:02:25', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:02:25'),
-(10, 'qwertyu', 'qwertyui', NULL, 3, '1234567890', 0, 1, 1, '2019-04-26 08:08:55', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:08:55'),
-(11, 'qwerty', 'wertyo', NULL, 6, '123456789', 0, 1, 1, '2019-04-26 08:11:37', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:11:37'),
-(12, 'sdsadsd', 'sdsdsdsd', NULL, 9, '2132312', 0, 1, 1, '2019-04-26 08:13:40', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:13:40'),
-(13, 'wewe', 'wew', NULL, 6, '21321', 0, 1, 1, '2019-04-26 08:16:36', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:16:36'),
-(14, 'AAS', 'sas', NULL, 5, 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-26 08:35:23', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 06:35:23'),
-(15, 'aaaa', 'a', NULL, 5, 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-26 12:41:48', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 10:41:48'),
-(16, 'dfghjk', 'hytrewasdfghuikmngf', NULL, 4, 'awesome', 0, 1, 1, '2019-04-26 12:54:38', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 10:54:38'),
-(17, 'werh', 'sdfghj', 9, 5, 'awesome products with splendidi featrurs', 0, 1, 1, '2019-04-26 13:00:16', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-26 11:00:16'),
-(18, 'ASDF', 'ASDG', 10, 3, 'awesome products with splendidi featrurs', 0, 1, 1, '2019-05-15 08:27:40', 1, NULL, NULL, NULL, NULL, NULL, '2019-05-15 06:27:40'),
-(19, 'SFDSFDFDSF', 'AAAAAAAA', 11, 5, 'ghlbijnklm', 0, 1, 1, '2019-05-15 08:28:04', 1, NULL, NULL, NULL, NULL, NULL, '2019-05-15 06:28:04'),
-(20, 'sfsdfsdf', 'sdfsdfsdf', 9, 3, 'sfsdfsdfsfsfsdfsdfsdfdsfsdfsdf', 0, 1, 1, '2019-05-15 09:11:10', 1, NULL, NULL, NULL, NULL, NULL, '2019-05-15 07:11:10');
+INSERT INTO `productsubgroup` (`id`, `name`, `shortName`, `maingroupId`, `groupId`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'gg', NULL, 1, 5, 'ok', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -2036,7 +1990,8 @@ CREATE TABLE `purity` (
 --
 
 INSERT INTO `purity` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, '24 caret', '24 caret ok', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
+(1, '24 caret', '24 caret ok', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(2, '25 Caret', '25 carets.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2501,7 +2456,8 @@ CREATE TABLE `shape` (
 --
 
 INSERT INTO `shape` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'Round', 'RND.', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
+(1, 'Round', 'RND.', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(2, 'hh', 'hh', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2529,41 +2485,30 @@ CREATE TABLE `size` (
 
 INSERT INTO `size` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'L', 'L', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'M', 'm', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A');
+(2, 'M', 'm', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A'),
+(3, 'M', 'Meduim.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `state_master`
+-- Table structure for table `state`
 --
 
-CREATE TABLE `state_master` (
-  `stateId` bigint(20) NOT NULL,
-  `stateName` varchar(50) NOT NULL,
-  `shortName` varchar(50) NOT NULL,
-  `stateCode` int(10) NOT NULL,
-  `fkcountryId` bigint(10) DEFAULT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `state` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
+  `code` int(12) NOT NULL,
+  `countryId` int(12) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `state_master`
---
-
-INSERT INTO `state_master` (`stateId`, `stateName`, `shortName`, `stateCode`, `fkcountryId`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'Maharashtra', 'MAH', 1, 1, 0, 1, 1, '2019-04-27 06:50:58', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 04:50:58'),
-(2, 'Gujrat', 'Gj', 414, 1, 0, 1, 1, '2019-07-09 11:23:33', 31, NULL, NULL, NULL, NULL, NULL, '2019-07-09 09:23:33'),
-(3, 'yorkshire', 'yorkshire', 112, 4, 0, 1, 1, '2019-07-10 08:35:01', NULL, NULL, NULL, NULL, NULL, NULL, '2019-07-10 06:35:01');
 
 -- --------------------------------------------------------
 
@@ -2614,7 +2559,7 @@ CREATE TABLE `subcategory` (
   `id` int(50) NOT NULL,
   `name` varchar(50) DEFAULT NULL,
   `description` varchar(255) DEFAULT NULL,
-  `categoryId` int(12) DEFAULT NULL,
+  `categoryId` int(12) NOT NULL,
   `createdDttm` int(12) DEFAULT NULL,
   `createdBy` int(4) DEFAULT NULL,
   `updatedDttm` int(12) DEFAULT NULL,
@@ -2631,7 +2576,9 @@ CREATE TABLE `subcategory` (
 
 INSERT INTO `subcategory` (`id`, `name`, `description`, `categoryId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'L', 'L', 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'M', 'm', 2, 2147483647, 1, NULL, NULL, 0, 1, 2147483647, 'A');
+(2, 'M', 'm', 2, 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(3, 'test', 'test', 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(4, 'bnn', 'ok', 4, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2752,9 +2699,10 @@ CREATE TABLE `unit` (
 --
 
 INSERT INTO `unit` (`id`, `name`, `shortName`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'AA', 'aa', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
+(1, 'GM', 'gm', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
 (2, 'BBv', 'bbd', NULL, NULL, 2147483647, 1, 1, 1, 2147483647, 'A'),
-(8, 'mm', 'ok', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A');
+(8, 'mm', 'ok', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A'),
+(9, 'KG', 'kg', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -2999,33 +2947,30 @@ INSERT INTO `voucherpayment_master` (`voucherId`, `receiptDate`, `fkaccountId`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `warehouse_master`
+-- Table structure for table `warehouse`
 --
 
-CREATE TABLE `warehouse_master` (
-  `warehouseId` int(11) NOT NULL,
-  `warehouseName` varchar(200) NOT NULL,
-  `description` varchar(255) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `warehouse` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `warehouse_master`
+-- Dumping data for table `warehouse`
 --
 
-INSERT INTO `warehouse_master` (`warehouseId`, `warehouseName`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'fdfd', ' xcx', 0, 1, 1, '2019-05-28 08:41:14', NULL, NULL, NULL, NULL, NULL, NULL, '2019-05-28 06:41:14'),
-(2, 'vcvv', ' vcv', 0, 1, 1, '2019-05-28 08:41:23', NULL, NULL, NULL, NULL, NULL, NULL, '2019-05-28 06:41:23');
+INSERT INTO `warehouse` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'bb', NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(3, 'gh', 'df', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 --
 -- Indexes for dumped tables
@@ -3038,6 +2983,12 @@ ALTER TABLE `account_master`
   ADD PRIMARY KEY (`accountId`);
 
 --
+-- Indexes for table `bank`
+--
+ALTER TABLE `bank`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `category`
 --
 ALTER TABLE `category`
@@ -3047,6 +2998,18 @@ ALTER TABLE `category`
 -- Indexes for table `color`
 --
 ALTER TABLE `color`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `counter`
+--
+ALTER TABLE `counter`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `country`
+--
+ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3062,6 +3025,12 @@ ALTER TABLE `hsnsac`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `paymenttype`
+--
+ALTER TABLE `paymenttype`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `productgroup`
 --
 ALTER TABLE `productgroup`
@@ -3071,6 +3040,12 @@ ALTER TABLE `productgroup`
 -- Indexes for table `productmaingroup`
 --
 ALTER TABLE `productmaingroup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `productsubgroup`
+--
+ALTER TABLE `productsubgroup`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3089,6 +3064,12 @@ ALTER TABLE `shape`
 -- Indexes for table `size`
 --
 ALTER TABLE `size`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `state`
+--
+ALTER TABLE `state`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3116,20 +3097,44 @@ ALTER TABLE `usertype_master`
   ADD PRIMARY KEY (`usertypeId`);
 
 --
+-- Indexes for table `warehouse`
+--
+ALTER TABLE `warehouse`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
+
+--
+-- AUTO_INCREMENT for table `bank`
+--
+ALTER TABLE `bank`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `counter`
+--
+ALTER TABLE `counter`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `country`
+--
+ALTER TABLE `country`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `gst`
@@ -3141,6 +3146,12 @@ ALTER TABLE `gst`
 -- AUTO_INCREMENT for table `hsnsac`
 --
 ALTER TABLE `hsnsac`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `paymenttype`
+--
+ALTER TABLE `paymenttype`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
@@ -3156,34 +3167,46 @@ ALTER TABLE `productmaingroup`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT for table `productsubgroup`
+--
+ALTER TABLE `productsubgroup`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT for table `purity`
 --
 ALTER TABLE `purity`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `shape`
 --
 ALTER TABLE `shape`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `state`
+--
+ALTER TABLE `state`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `userregistration_master`
@@ -3196,6 +3219,12 @@ ALTER TABLE `userregistration_master`
 --
 ALTER TABLE `usertype_master`
   MODIFY `usertypeId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `warehouse`
+--
+ALTER TABLE `warehouse`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
