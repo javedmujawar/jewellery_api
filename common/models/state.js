@@ -8,7 +8,7 @@ module.exports = function(State) {
 		});	
 	};
     State.getListByCountryId = function (countryId,cb) {
-		State.dataSource.connector.query("select id, name from state where countryId="+countryId, (err, results) => {
+		State.dataSource.connector.query("select id, name from state where isDeleted = 0 and countryId="+countryId, (err, results) => {
 			cb(err, results);
 		});	
 	};

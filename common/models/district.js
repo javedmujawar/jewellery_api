@@ -8,10 +8,27 @@ module.exports = function(District) {
 		});	
 	};
 
+    District.getListByStateId = function (stateId,cb) {
+		District.dataSource.connector.query("select id, name from district where isDeleted = 0 and stateId="+stateId, (err, results) => {
+			cb(err, results);
+		});	
+	};
+
     District.remoteMethod('getJoinList', {
         description: 'To get join list.',
         http: { path: "", verb: 'GET' },
         accepts: [],
+        returns: { type: 'array', root: true }
+    });
+
+    District.remoteMethod('getListByStateId', {
+        description: 'To get list state wise.',
+        http: { path: "/getListByStateId/:stateId", verb: 'GET' },
+        accepts: {
+            arg: "stateId",
+            type: "number",
+            http: { source: "path" },
+          },
         returns: { type: 'array', root: true }
     });
 
