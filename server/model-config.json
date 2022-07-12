@@ -84,6 +84,18 @@
   "state": {
     "dataSource": "jewellerydbDS",
     "public": true
+  },
+  "district": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "taluka": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "village": {
+    "dataSource": "jewellerydbDS",
+    "public": true
   }
   
 

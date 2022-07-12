@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2022 at 04:17 PM
+-- Generation Time: Jul 12, 2022 at 12:02 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -267,7 +267,8 @@ CREATE TABLE `country` (
 --
 
 INSERT INTO `country` (`id`, `name`, `shortName`, `phoneCode`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'India', 'INDIA', 91, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A');
+(1, 'India', 'INDIA', 91, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(2, 'USA', 'USA', 101, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -458,6 +459,37 @@ CREATE TABLE `discount_master` (
 
 INSERT INTO `discount_master` (`discountId`, `discountName`, `discountValue`, `description`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
 (1, 'cscx', 11223, '100', 0, 1, 1, '2019-05-19 11:05:44', NULL, '2019-07-04 09:39:16', 26, NULL, NULL, NULL, '2019-05-19 09:05:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `district`
+--
+
+CREATE TABLE `district` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
+  `code` int(12) NOT NULL,
+  `countryId` int(12) NOT NULL,
+  `stateId` int(12) NOT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `district`
+--
+
+INSERT INTO `district` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Kolhapur', 'KOP', 9, 1, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'Belgam', 'BG', 230, 1, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1621,13 +1653,13 @@ CREATE TABLE `productmaingroup` (
 --
 
 INSERT INTO `productmaingroup` (`id`, `name`, `shortName`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'AA', 'aa', 'ok', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
-(2, 'BB', 'bb', 'description', NULL, NULL, NULL, NULL, 0, NULL, 0, 'A'),
-(3, 'my string', 'vvvbbbb', 'testbbb', 0, 0, 2147483647, 1, 1, 1, 2147483647, 'A'),
-(4, 'ss', 'ss', 'ss', NULL, NULL, NULL, NULL, 1, NULL, 0, 'A'),
-(5, 'harsh', 'test', 'ok.', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A'),
-(6, 'ttt', 'ttt', 'thh', 2147483647, 1, NULL, NULL, 1, NULL, 0, 'A'),
-(7, 'my str', 'str.', 'ok.', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A');
+(1, 'AA', 'aa', 'ok', NULL, NULL, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(2, 'BB', 'bb', 'description', NULL, NULL, NULL, NULL, 0, 1, 2147483647, 'A'),
+(3, 'my string', 'vvvbbbb', 'testbbb', 0, 0, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(4, 'ss', 'ss', 'ss', NULL, NULL, NULL, NULL, 1, 1, 2147483647, 'A'),
+(5, 'harsh', 'test', 'ok.', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A'),
+(6, 'ttt', 'ttt', 'thh', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A'),
+(7, 'my str', 'str.', 'ok.', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -2496,10 +2528,10 @@ INSERT INTO `size` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `up
 
 CREATE TABLE `state` (
   `id` int(50) NOT NULL,
-  `name` varchar(50) DEFAULT NULL,
+  `name` varchar(50) NOT NULL,
   `shortName` varchar(50) DEFAULT NULL,
   `code` int(12) NOT NULL,
-  `countryId` int(12) DEFAULT NULL,
+  `countryId` int(12) NOT NULL,
   `createdDttm` int(12) DEFAULT NULL,
   `createdBy` int(4) DEFAULT NULL,
   `updatedDttm` int(12) DEFAULT NULL,
@@ -2509,6 +2541,15 @@ CREATE TABLE `state` (
   `deletedDttm` int(12) DEFAULT NULL,
   `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `state`
+--
+
+INSERT INTO `state` (`id`, `name`, `shortName`, `code`, `countryId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Maharashtra', 'MH', 9, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'Karnataka', 'KA', 23, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(3, 'America', 'AMC', 20, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2641,38 +2682,34 @@ INSERT INTO `supplier_master` (`supplierId`, `supplierName`, `suppliermarathiNam
 -- --------------------------------------------------------
 
 --
--- Table structure for table `taluka_master`
+-- Table structure for table `taluka`
 --
 
-CREATE TABLE `taluka_master` (
-  `talukaId` bigint(20) NOT NULL,
-  `talukaName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `talukashortName` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `talukaCode` int(50) NOT NULL,
-  `fkcountryId` bigint(20) NOT NULL,
-  `fkstateId` bigint(20) NOT NULL,
-  `fkdistrictId` bigint(20) NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `taluka` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
+  `code` int(12) NOT NULL,
+  `countryId` int(12) NOT NULL,
+  `stateId` int(12) NOT NULL,
+  `districtId` int(12) NOT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `taluka_master`
+-- Dumping data for table `taluka`
 --
 
-INSERT INTO `taluka_master` (`talukaId`, `talukaName`, `talukashortName`, `talukaCode`, `fkcountryId`, `fkstateId`, `fkdistrictId`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'Gadhinglaj', '', 0, 1, 1, 1, 0, 1, 0, '2019-04-27 06:58:40', 1, NULL, NULL, '2019-05-16 07:52:52', NULL, NULL, '2019-04-27 04:58:40'),
-(2, 'karveer', 'karveer', 10, 1, 1, 1, 0, 1, 1, '2019-05-16 07:52:41', NULL, '2019-07-10 09:13:14', NULL, NULL, NULL, NULL, '2019-05-16 05:52:41'),
-(3, 'karveer', 'karveer', 1, 1, 1, 1, 0, 1, 1, '2019-07-06 14:59:58', NULL, '2019-07-06 15:03:35', NULL, NULL, NULL, NULL, '2019-07-06 12:59:58');
+INSERT INTO `taluka` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `districtId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Karveer', 'Karveer', 2, 1, 1, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'Nippani', 'NP', 20, 1, 2, 2, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2861,6 +2898,39 @@ INSERT INTO `vehicle_master` (`vehicleserialId`, `fkcustomerId`, `vehicleNumber`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `village`
+--
+
+CREATE TABLE `village` (
+  `id` int(50) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `shortName` varchar(50) DEFAULT NULL,
+  `code` int(12) NOT NULL,
+  `countryId` int(12) NOT NULL,
+  `stateId` int(12) NOT NULL,
+  `districtId` int(12) NOT NULL,
+  `talukaId` int(12) NOT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `village`
+--
+
+INSERT INTO `village` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `districtId`, `talukaId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Kolhapur', 'KP', 9, 1, 1, 1, 1, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(2, 'Khadaklat', 'KH', 230, 1, 2, 2, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `village_master`
 --
 
@@ -3013,6 +3083,12 @@ ALTER TABLE `country`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `district`
+--
+ALTER TABLE `district`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gst`
 --
 ALTER TABLE `gst`
@@ -3079,6 +3155,12 @@ ALTER TABLE `subcategory`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `taluka`
+--
+ALTER TABLE `taluka`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `unit`
 --
 ALTER TABLE `unit`
@@ -3095,6 +3177,12 @@ ALTER TABLE `userregistration_master`
 --
 ALTER TABLE `usertype_master`
   ADD PRIMARY KEY (`usertypeId`);
+
+--
+-- Indexes for table `village`
+--
+ALTER TABLE `village`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `warehouse`
@@ -3134,7 +3222,13 @@ ALTER TABLE `counter`
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `district`
+--
+ALTER TABLE `district`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `gst`
@@ -3194,13 +3288,19 @@ ALTER TABLE `size`
 -- AUTO_INCREMENT for table `state`
 --
 ALTER TABLE `state`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `taluka`
+--
+ALTER TABLE `taluka`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `unit`
@@ -3219,6 +3319,12 @@ ALTER TABLE `userregistration_master`
 --
 ALTER TABLE `usertype_master`
   MODIFY `usertypeId` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `village`
+--
+ALTER TABLE `village`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `warehouse`

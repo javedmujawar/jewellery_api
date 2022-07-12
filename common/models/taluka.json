@@ -1,0 +1,76 @@
+{
+    "name": "taluka",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+      "name": {
+        "type": "string",
+        "required": true
+      },
+      "shortName": {
+        "type": "string",
+        "required": false
+      },
+      "code": {
+        "type": "number",
+        "required": true
+      },
+      "countryId": {
+        "type": "number",
+        "required": true
+      },
+      "stateId": {
+        "type": "number",
+        "required": true
+      },
+      "districtId": {
+        "type": "number",
+        "required": true
+      },
+      "createdDttm": {
+        "type": "number"
+      },
+      "createdBy": {
+        "type": "number"
+      },
+      "updatedDttm": {
+        "type": "number"
+      },
+      "updatedBy": {
+        "type": "number"
+      },
+      "isDeleted": {
+        "type": "number",
+        "default": 0
+      },
+      "deletedBy": {
+        "type": "number"
+      },
+      "deletedDttm": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "default": "A"
+      }
+    },
+    "validations": [],
+    "relations": {
+      "country": {
+        "type": "belongsTo",
+        "model": "country",
+        "foreignKey": "countryId"
+      },
+      "state": {
+        "type": "belongsTo",
+        "model": "state",
+        "foreignKey": "stateId"
+      }
+    },
+    "acls": [],
+    "methods": {}
+  }
+  
