@@ -1,0 +1,75 @@
+{
+    "name": "rate",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": true
+    },
+    "properties": {
+    "categoryId": {
+        "type": "number",
+         "required": true
+      },
+      "subcategoryId": {
+        "type": "number",
+         "required": true
+      },
+      "productId": {
+        "type": "number",
+         "required": true
+      },
+      "rateOne": {
+        "type": "number",
+         "required": true,
+         "default": 0
+      },
+      "rateTen": {
+        "type": "number",
+         "required": true,
+         "default": 0
+      },
+      "purityId": {
+        "type": "number",
+         "required": true
+      },
+      "rateDate": {
+        "type": "string",
+        "default": null
+      },      
+      "description": {
+        "type": "string",
+        "required": false
+      },
+      "createdDttm": {
+        "type": "number"
+      },
+      "createdBy": {
+        "type": "number"
+      },
+      "updatedDttm": {
+        "type": "number"
+      },
+      "updatedBy": {
+        "type": "number"
+      },
+      "isDeleted": {
+        "type": "number",
+        "default": 0
+      },
+      "deletedBy": {
+        "type": "number"
+      },
+      "deletedDttm": {
+        "type": "number"
+      },
+      "status": {
+        "type": "string",
+        "default": "A"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  
