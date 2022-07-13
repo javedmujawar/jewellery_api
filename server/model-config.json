@@ -96,6 +96,14 @@
   "village": {
     "dataSource": "jewellerydbDS",
     "public": true
+  },
+  "company": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "rate": {
+    "dataSource": "jewellerydbDS",
+    "public": true
   }
   
 
