@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2022 at 12:02 PM
+-- Generation Time: Jul 13, 2022 at 03:55 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -169,6 +169,47 @@ CREATE TABLE `color` (
 INSERT INTO `color` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Red', 'RD', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'Blue', 'BL', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `company`
+--
+
+CREATE TABLE `company` (
+  `id` int(50) NOT NULL,
+  `name` varchar(200) COLLATE utf8mb4_croatian_ci NOT NULL,
+  `headOffice` varchar(200) COLLATE utf8mb4_croatian_ci NOT NULL,
+  `serviceCenter` varchar(200) COLLATE utf8mb4_croatian_ci NOT NULL,
+  `centerName` varchar(200) COLLATE utf8mb4_croatian_ci NOT NULL,
+  `centerAddress` varchar(200) COLLATE utf8mb4_croatian_ci NOT NULL,
+  `contactNumber` int(20) NOT NULL,
+  `serviceCenterMobNo` int(20) NOT NULL,
+  `contactPersonName` varchar(200) COLLATE utf8mb4_croatian_ci DEFAULT NULL,
+  `contactPersonMobNo` int(20) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) COLLATE utf8mb4_croatian_ci DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_croatian_ci;
+
+--
+-- Dumping data for table `company`
+--
+
+INSERT INTO `company` (`id`, `name`, `headOffice`, `serviceCenter`, `centerName`, `centerAddress`, `contactNumber`, `serviceCenterMobNo`, `contactPersonName`, `contactPersonMobNo`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'asd', 'dsa', 'rrr', 'sss', 'erwww', 232423584, 852014796, '8555555', 258741369, NULL, NULL, 2147483647, 1, 0, NULL, NULL, 'A'),
+(2, 'Company', 'Valivde', 'Near AVIT', 'Kolhapur', 'Kolhapur', 123456789, 987456321, 'Harsh Devane', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(3, 'infosys vanu', 'kolhapur', 'kolhapur', 'service center', 'kolhapur rankala', 2147483647, 2147483647, 'rajendra', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(4, 'comytanse technology', 'valivde', 'kolhapur', 'kolhapur ', 'CSIBER kolhapur', 2147483647, 2147483647, 'akash v', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(5, 'ars', 'kolhapur', 'kolhapur', 'kolhapur ', 'CSIBER kolhapur', 2147483647, 2147483647, 'bhalchandra', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(6, 'WIPRO', 'pune', 'pune', 'pune', 'hinjavdi pune ', 2147483647, 2147483647, 'babaso', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(7, 'Tata', 'Mumbai', 'Pune', 'Tata Servieses Mumbai', 'Vashi Mumbai', 2147483647, 2147483647, 'Rajan', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(8, 'Kalawant', 'Kolhapur', 'Jawahar Nagar', 'Kalawant', 'Subhash Nagar', 2147483647, 2147483647, NULL, NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -490,42 +531,6 @@ CREATE TABLE `district` (
 INSERT INTO `district` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Kolhapur', 'KOP', 9, 1, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'Belgam', 'BG', 230, 1, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `distric_master`
---
-
-CREATE TABLE `distric_master` (
-  `districtId` bigint(20) NOT NULL,
-  `districtName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `districtCode` bigint(20) NOT NULL,
-  `districtshortName` varchar(20) CHARACTER SET latin1 NOT NULL,
-  `fkcountryId` bigint(200) NOT NULL,
-  `fkstateId` bigint(200) NOT NULL,
-  `fktalukaId` bigint(200) NOT NULL,
-  `is_default` tinyint(4) NOT NULL DEFAULT '0',
-  `is_on` tinyint(4) NOT NULL DEFAULT '1',
-  `is_active` tinyint(4) NOT NULL DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `distric_master`
---
-
-INSERT INTO `distric_master` (`districtId`, `districtName`, `districtCode`, `districtshortName`, `fkcountryId`, `fkstateId`, `fktalukaId`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'Kolhapur', 0, '', 1, 1, 0, 0, 1, 1, '2019-04-27 06:53:53', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 04:53:53'),
-(2, 'Kagal', 140, 'kagal', 1, 1, 0, 0, 1, 1, '2019-05-06 12:56:01', 1, '2019-07-10 09:11:12', NULL, NULL, NULL, NULL, '2019-05-06 10:56:01'),
-(3, 'hhhh', 0, '', 1, 1, 0, 0, 1, 1, '2019-05-11 10:42:40', NULL, '2019-05-11 10:46:07', NULL, NULL, NULL, NULL, '2019-05-11 08:42:40');
 
 -- --------------------------------------------------------
 
@@ -2028,6 +2033,32 @@ INSERT INTO `purity` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rate`
+--
+
+CREATE TABLE `rate` (
+  `id` int(11) NOT NULL,
+  `categoryId` int(11) DEFAULT NULL,
+  `subcategoryId` int(11) DEFAULT NULL,
+  `productId` int(11) DEFAULT NULL,
+  `rateOne` int(11) DEFAULT NULL,
+  `rateTen` int(11) DEFAULT NULL,
+  `purityId` int(11) DEFAULT NULL,
+  `rateDate` date DEFAULT NULL,
+  `description` varchar(255) NOT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `rate_master`
 --
 
@@ -2039,7 +2070,7 @@ CREATE TABLE `rate_master` (
   `rateOne` int(11) DEFAULT NULL,
   `rateTen` int(11) DEFAULT NULL,
   `fkpurityId` int(11) DEFAULT NULL,
-  `rateDate` date DEFAULT NULL,
+  `rateDate` varchar(15) DEFAULT NULL,
   `description` varchar(255) NOT NULL,
   `is_default` tinyint(4) DEFAULT '0',
   `is_on` tinyint(4) DEFAULT '1',
@@ -2739,7 +2770,7 @@ INSERT INTO `unit` (`id`, `name`, `shortName`, `createdDttm`, `createdBy`, `upda
 (1, 'GM', 'gm', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
 (2, 'BBv', 'bbd', NULL, NULL, 2147483647, 1, 1, 1, 2147483647, 'A'),
 (8, 'mm', 'ok', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A'),
-(9, 'KG', 'kg', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
+(9, 'KG', 'kg', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -2931,42 +2962,6 @@ INSERT INTO `village` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `village_master`
---
-
-CREATE TABLE `village_master` (
-  `villageId` bigint(20) NOT NULL,
-  `villageName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `shortName` varchar(50) CHARACTER SET latin1 NOT NULL,
-  `villageCode` int(20) NOT NULL,
-  `fkcountryId` int(255) NOT NULL,
-  `fkstateId` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `fkdistrictId` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `fktalukaId` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `village_master`
---
-
-INSERT INTO `village_master` (`villageId`, `villageName`, `shortName`, `villageCode`, `fkcountryId`, `fkstateId`, `fkdistrictId`, `fktalukaId`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'ddd', 'dssd', 12212, 1, '1', '1', '1', 0, 1, 1, '2019-05-11 11:44:11', 1, NULL, NULL, NULL, NULL, NULL, '2019-05-11 09:44:11'),
-(2, 'valiwade', 'val', 416119, 1, '1', '1', '1', 0, 1, 1, '2019-05-16 07:51:56', NULL, NULL, NULL, NULL, NULL, NULL, '2019-05-16 05:51:56');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `voucherpayment_master`
 --
 
@@ -3071,6 +3066,12 @@ ALTER TABLE `color`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `company`
+--
+ALTER TABLE `company`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `counter`
 --
 ALTER TABLE `counter`
@@ -3128,6 +3129,12 @@ ALTER TABLE `productsubgroup`
 -- Indexes for table `purity`
 --
 ALTER TABLE `purity`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `rate`
+--
+ALTER TABLE `rate`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3213,6 +3220,12 @@ ALTER TABLE `color`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `company`
+--
+ALTER TABLE `company`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
+--
 -- AUTO_INCREMENT for table `counter`
 --
 ALTER TABLE `counter`
@@ -3271,6 +3284,12 @@ ALTER TABLE `productsubgroup`
 --
 ALTER TABLE `purity`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `rate`
+--
+ALTER TABLE `rate`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `shape`
