@@ -43,11 +43,5 @@
   },
   "validations": [],  
   "acls": [],
-  "methods": {},
-  "scope": {
-    "order": "id DESC",
-    "where": {
-      "isDeleted": "0" 
-    }
-  }
+  "methods": {}
 }
