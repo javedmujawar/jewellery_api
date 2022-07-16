@@ -1,0 +1,78 @@
+{
+    "name": "userregistration",
+    "base": "PersistedModel",
+    "idInjection": true,
+    "options": {
+      "validateUpsert": false
+    },
+    "properties": {
+        "userTypeId": {
+            "type": "number",
+            "required": true
+          },
+          "userName": {
+            "type": "string",
+            "required": true
+          },
+      "photo": {
+        "type": "string",
+        "required": false
+      },     
+     
+      "email": {
+        "type": "string",
+        "required": false
+      },
+      "mobileNumber": {
+        "type": "number",
+        "required": true
+      },
+      "password": {
+        "type": "string",
+        "required": true
+      },
+      "sendSms": {
+        "type": "string",
+        "required": false
+      },
+      "createdDttm": {
+        "type": "number",
+        "required": false
+      },
+      "createdBy": {
+        "type": "number",
+        "required": false
+      },
+      "updatedDttm": {
+        "type": "number",
+        "required": false
+      },
+      "updatedBy": {
+        "type": "number",
+        "required": false
+      },
+      "isDeleted": {
+        "type": "number",
+        "required": false,
+        "default": 0
+      },
+      "deletedBy": {
+        "type": "number",
+        "required": false
+      },
+      "deletedDttm": {
+        "type": "number",
+        "required": false
+      },
+      "status": {
+        "type": "string",
+        "required": false,
+        "default": "A"
+      }
+    },
+    "validations": [],
+    "relations": {},
+    "acls": [],
+    "methods": {}
+  }
+  
