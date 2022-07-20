@@ -18,6 +18,14 @@
         "type": "string",
         "required": true
       },
+      "unitId": {
+        "type": "number",
+        "required": true
+      },
+      "openingStock": {
+        "type": "number",
+        "required": false
+      },
       "categoryId": {
         "type": "number",
         "required": true
@@ -26,9 +34,103 @@
         "type": "number",
         "required": true
       },
+      "purityId": {
+        "type": "number",
+        "required": true
+      },
+      "maingroupId": {
+        "type": "number",
+        "required": true
+      },
+      "groupId": {
+        "type": "number",
+        "required": true
+      },
+      "subgroupId": {
+        "type": "number",
+        "required": true
+      },
+      "companyId": {
+        "type": "number",
+        "required": true
+      },
       "colorId": {
         "type": "number",
         "required": true
+      },
+      "sizeId": {
+        "type": "number",
+        "required": true
+      },
+      "shapeId": {
+        "type": "number",
+        "required": true
+      },
+      "hsnsacId": {
+        "type": "number",
+        "required": true
+      },
+      "gstId": {
+        "type": "number",
+        "required": true
+      },
+      "warehouseId": {
+        "type": "number",
+        "required": true
+      },
+      "weight": {
+        "type": "number",
+        "required": false
+      },
+      "hight": {
+        "type": "number",
+        "required": false
+      },
+      "storageLocation": {
+        "type": "string",
+        "required": false
+      },
+      "purchaseRate": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": false
+      },
+      "mrpRate": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": false
+      },
+      "minsalesRate": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": false
+      },
+      "salesRate": {
+        "type": "number",
+        "dataType": "float",
+        "precision": 18,
+        "scale": 2,
+        "default": 0,
+        "required": false
+      },
+      "minstockLevel": {
+        "type": "number",        
+        "default": 0,
+        "required": false
+      },
+      "maxstockLevel": {
+        "type": "number",        
+        "default": 0,
+        "required": false
       },
       "description": {
         "type": "string",
