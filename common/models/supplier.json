@@ -1,149 +1,120 @@
 {
-    "name": "product",
+    "name": "supplier",
     "base": "PersistedModel",
     "idInjection": true,
     "options": {
       "validateUpsert": true
     },
     "properties": {
-        "barcode": {
-            "type": "string",
-            "required": true
-          },
+       
       "name": {
         "type": "string",
         "required": true
       },
-      "shortName": {
+      "marathiName": {
         "type": "string",
         "required": false
       },
-      "unitId": {
+      "primaryMobile": {
         "type": "number",
         "required": true
       },
-      "openingStock": {
+      "secondaryMobile": {
         "type": "number",
         "required": false
       },
-      "categoryId": {
+      "address": {
+        "type": "string",
+        "required": true
+      },
+      "birthDate": {
         "type": "number",
         "required": true
       },
-      "subcategoryId": {
-        "type": "number",
-        "required": true
-      },
-      "purityId": {
+      "genderId": {
         "type": "number",
         "required": false
       },
-      "maingroupId": {
-        "type": "number",
-        "required": false
-      },
-      "groupId": {
-        "type": "number",
-        "required": false
-      },
-      "subgroupId": {
-        "type": "number",
-        "required": false
-      },
-      "companyId": {
-        "type": "number",
-        "required": false
-      },
-      "colorId": {
-        "type": "number",
-        "required": false
-      },
-      "sizeId": {
-        "type": "number",
-        "required": false
-      },
-      "shapeId": {
-        "type": "number",
-        "required": false
-      },
-      "hsnsacId": {
-        "type": "number",
-        "required": false
-      },
-      "gstId": {
-        "type": "number",
-        "required": false
-      },
-      "warehouseId": {
-        "type": "number",
-        "required": false
-      },
-      "weight": {
-        "type": "number",
-        "dataType": "float",
-        "precision": 18,
-        "scale": 2,
-        "default": 0,
-        "required": false
-      },
-      "hight": {
-        "type": "number",
-        "dataType": "float",
-        "precision": 18,
-        "scale": 2,
-        "default": 0,
-        "required": false
-      },
-      "storageLocation": {
+      "photo": {
         "type": "string",
         "required": false
       },
-      "purchaseRate": {
+      "email": {
+        "type": "string",
+        "required": false
+      },        
+      "gstNumber": {
         "type": "number",
-        "dataType": "float",
-        "precision": 18,
-        "scale": 2,
+        "required": false
+      },
+      "openingBalance": {
+        "type": "number",       
         "default": 0,
         "required": false
       },
-      "mrpRate": {
+      "creditLimit": {
+        "type": "number",       
+        "default": 0,
+        "required": false
+      },
+      "crdrId": {
         "type": "number",
-        "dataType": "float",
-        "precision": 18,
-        "scale": 2,
-        "default": 0,
         "required": false
-      },
-      "minsalesRate": {
+      },     
+      "countryId": {
         "type": "number",
-        "dataType": "float",
-        "precision": 18,
-        "scale": 2,
-        "default": 0,
         "required": false
       },
-      "salesRate": {
+      "stateId": {
         "type": "number",
-        "dataType": "float",
-        "precision": 18,
-        "scale": 2,
-        "default": 0,
         "required": false
       },
-      "minstockLevel": {
-        "type": "number",        
-        "default": 0,
+      "districtId": {
+        "type": "number",
         "required": false
       },
-      "maxstockLevel": {
-        "type": "number",        
-        "default": 0,
+      "talukaId": {
+        "type": "number",
         "required": false
       },
-      "description": {
+      "villageId": {
+        "type": "number",
+        "required": false
+      },      
+      "pinCode": {
+        "type": "number",
+        "required": false
+      },
+      "pancardNumber": {
         "type": "string",
         "required": false
       },
+      "adharcardNumber": {
+        "type": "number",
+        "required": false
+      },
+      "customercategoriesId": {
+        "type": "number",
+        "required": false
+      }, 
+      "usertypeId": {
+        "type": "number",
+        "required": false
+      },
+      "registrationDate": {
+        "type": "number",
+        "required": false
+      },  
+      "sendSms": {
+        "type": "number",
+        "default": 0,
+        "required": false
+      }, 
+      "sendwhatsappSms": {
+        "type": "number",
+        "default": 0,
+        "required": false
+      },      
       "createdDttm": {
         "type": "number"
       },

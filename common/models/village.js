@@ -7,11 +7,27 @@ module.exports = function(Village) {
 			cb(err, results);
 		});	
 	};
+    Village.getListByTalukaId = function (talukaId,cb) {
+		Village.dataSource.connector.query("select id, name from village where isDeleted = 0 and talukaId="+talukaId, (err, results) => {
+			cb(err, results);
+		});	
+	};
 
     Village.remoteMethod('getJoinList', {
         description: 'To get join list.',
         http: { path: "", verb: 'GET' },
         accepts: [],
+        returns: { type: 'array', root: true }
+    });
+
+    Village.remoteMethod('getListByTalukaId', {
+        description: 'To get list taluka wise.',
+        http: { path: "/getListByTalukaId/:talukaId", verb: 'GET' },
+        accepts: {
+            arg: "talukaId",
+            type: "number",
+            http: { source: "path" },
+          },
         returns: { type: 'array', root: true }
     });
 

@@ -9,8 +9,20 @@ module.exports = function(ProductSubGroup) {
 		});	
 	};
 
+     //To get ProductSubGroup key value pair list.
+     ProductSubGroup.getListKV = function (cb) {
+		ProductSubGroup.dataSource.connector.query("select id,name from productsubgroup where isDeleted=0", (err, results) => {
+			cb(err, results);
+		});	
+	};
     ProductSubGroup.remoteMethod('getJoinList', {
         description: 'To get join list.',
+        http: { path: "", verb: 'GET' },
+        accepts: [],
+        returns: { type: 'array', root: true }
+    });
+    ProductSubGroup.remoteMethod('getListKV', {
+        description: 'To get ProductSubGroup key value pair list.',
         http: { path: "", verb: 'GET' },
         accepts: [],
         returns: { type: 'array', root: true }

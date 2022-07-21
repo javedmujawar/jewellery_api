@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 16, 2022 at 02:48 PM
+-- Generation Time: Jul 21, 2022 at 02:00 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -86,32 +86,42 @@ CREATE TABLE `bank` (
 INSERT INTO `bank` (`id`, `name`, `shortName`, `address`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'UCO', 'UCO', 'Shivaji University , Kolhapur.', 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
 (2, 'Bank of India', 'B.O.I', 'Rajarampuri, Kolhapur-416008', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
-(3, 'yu', 'yu', NULL, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A');
+(3, 'yu', 'yu', NULL, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(4, 'r', 'r', NULL, 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `blood_master`
+-- Table structure for table `bloodgroup`
 --
 
-CREATE TABLE `blood_master` (
-  `bloodgroupId` int(20) NOT NULL,
-  `bloodgroup` varchar(50) DEFAULT NULL
+CREATE TABLE `bloodgroup` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `blood_master`
+-- Dumping data for table `bloodgroup`
 --
 
-INSERT INTO `blood_master` (`bloodgroupId`, `bloodgroup`) VALUES
-(1, 'A+'),
-(2, 'O+'),
-(3, 'B+'),
-(4, 'AB+'),
-(5, 'A-'),
-(6, 'O-'),
-(7, 'B-'),
-(8, 'AB-');
+INSERT INTO `bloodgroup` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'A+', 'A+', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(2, 'O+', 'O+', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(3, 'B+', 'B+', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(4, 'AB+', 'AB+', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(5, 'A-', 'A-', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(6, 'O-', 'O-', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(7, 'B-', 'B-', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(8, 'AB-', 'AB-', 0, 0, 0, 0, 0, 0, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -141,7 +151,9 @@ INSERT INTO `category` (`id`, `name`, `description`, `createdDttm`, `createdBy`,
 (1, 'Metal', 'Metal', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
 (2, 'Non Metal', 'Non Metal', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
 (3, 'Plastic', 'ok', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A'),
-(4, 'mn', NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(4, 'mn', NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(9, 'hh', 'hh', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(10, 'vv', 'vv', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -169,7 +181,8 @@ CREATE TABLE `color` (
 
 INSERT INTO `color` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Red', 'RD', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'Blue', 'BL', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
+(2, 'Blue', 'BL', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A'),
+(3, 'Green', 'Green', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -206,7 +219,7 @@ INSERT INTO `company` (`id`, `name`, `headOffice`, `serviceCenter`, `centerName`
 (1, 'asd', 'dsa', 'rrr', 'sss', 'erwww', 232423584, 852014796, '8555555', 258741369, NULL, NULL, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'Company', 'Valivde', 'Near AVIT', 'Kolhapur', 'Kolhapur', 123456789, 987456321, 'Harsh Devane', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (3, 'infosys vanu', 'kolhapur', 'kolhapur', 'service center', 'kolhapur rankala', 2147483647, 2147483647, 'rajendra', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(4, 'comytanse technology', 'valivde', 'kolhapur', 'kolhapur ', 'CSIBER kolhapur', 2147483647, 2147483647, 'akash v', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(4, 'comytanse technology', 'valivde', 'kolhapur', 'kolhapur ', 'CSIBER kolhapur', 2147483647, 2147483647, NULL, 2147483647, NULL, NULL, 2147483647, 1, 0, NULL, NULL, 'A'),
 (5, 'ars', 'kolhapur', 'kolhapur', 'kolhapur ', 'CSIBER kolhapur', 2147483647, 2147483647, 'bhalchandra', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (6, 'WIPRO', 'pune', 'pune', 'pune', 'hinjavdi pune ', 2147483647, 2147483647, 'babaso', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (7, 'Tata', 'Mumbai', 'Pune', 'Tata Servieses Mumbai', 'Vashi Mumbai', 2147483647, 2147483647, 'Rajan', 2147483647, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
@@ -281,7 +294,8 @@ CREATE TABLE `counter` (
 
 INSERT INTO `counter` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Counter 1', 'Cash Counter.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'Counter2', NULL, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
+(2, 'Counter2', NULL, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(3, 'mnn', 'mnn', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -310,7 +324,8 @@ CREATE TABLE `country` (
 
 INSERT INTO `country` (`id`, `name`, `shortName`, `phoneCode`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'India', 'INDIA', 91, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
-(2, 'USA', 'USA', 101, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A');
+(2, 'USA', 'USA', 101, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(3, 'b', 'b', 10, 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -331,6 +346,14 @@ CREATE TABLE `crdr` (
   `deletedDttm` int(12) DEFAULT NULL,
   `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `crdr`
+--
+
+INSERT INTO `crdr` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'CR', 'Credit', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(2, 'DR', 'Debit', 0, 0, 0, 0, 0, 0, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -365,6 +388,57 @@ INSERT INTO `crdr_master` (`crdrId`, `crdrName`, `is_default`, `is_on`, `is_acti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `customer`
+--
+
+CREATE TABLE `customer` (
+  `id` int(50) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `marathiName` varchar(200) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `primaryMobile` bigint(30) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `countryId` int(50) DEFAULT NULL,
+  `stateId` int(50) DEFAULT NULL,
+  `districtId` int(50) DEFAULT NULL,
+  `talukaId` int(50) DEFAULT NULL,
+  `villageId` int(50) DEFAULT NULL,
+  `pinCode` int(10) DEFAULT NULL,
+  `genderId` int(50) DEFAULT NULL,
+  `secondaryMobile` bigint(30) DEFAULT NULL,
+  `gstNumber` int(50) DEFAULT NULL,
+  `openingBalance` int(50) DEFAULT '0',
+  `crdrId` int(11) DEFAULT NULL,
+  `creditLimit` int(50) DEFAULT '0',
+  `birthDate` int(13) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `customercategoriesId` int(20) DEFAULT NULL,
+  `pancardNumber` varchar(20) DEFAULT NULL,
+  `adharcardNumber` bigint(30) DEFAULT NULL,
+  `sendSms` int(1) DEFAULT '0',
+  `sendwhatsappSms` int(1) DEFAULT '0',
+  `usertypeId` int(20) DEFAULT NULL,
+  `registrationDate` int(13) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) NOT NULL DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `customer`
+--
+
+INSERT INTO `customer` (`id`, `name`, `marathiName`, `address`, `primaryMobile`, `email`, `countryId`, `stateId`, `districtId`, `talukaId`, `villageId`, `pinCode`, `genderId`, `secondaryMobile`, `gstNumber`, `openingBalance`, `crdrId`, `creditLimit`, `birthDate`, `photo`, `customercategoriesId`, `pancardNumber`, `adharcardNumber`, `sendSms`, `sendwhatsappSms`, `usertypeId`, `registrationDate`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Rashid Kalawant', 'Rashid', 'Jawahar Nagar,Kolhapur', 7385207857, 'ar.rashid@gmail.com', 1, 2, 2, 2, 2, 416008, 1, 8956970105, NULL, 0, 2, 0, 2147483647, 'null', 12, 'BXDPK3974N', 306058571074, 0, 1, 2, 2147483647, 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `customercategories`
 --
 
@@ -388,12 +462,12 @@ CREATE TABLE `customercategories` (
 
 INSERT INTO `customercategories` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (9, 'Comtranse', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(10, 'Comtranse technlogyeeeeee', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(10, 'c', NULL, NULL, NULL, 2147483647, 1, 0, NULL, NULL, 'A'),
 (11, 'Comtranseb', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (12, 'bfbff', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (13, 'e', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (14, 'dv', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(15, 'dvv', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
+(15, 'dvv', NULL, NULL, NULL, NULL, NULL, 1, 1, 2147483647, 'A'),
 (16, 'sdd', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (17, 's', NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (18, 'vaibhav shiv', 'k', NULL, NULL, 2147483647, 1, 0, NULL, NULL, 'A'),
@@ -588,7 +662,58 @@ CREATE TABLE `district` (
 
 INSERT INTO `district` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Kolhapur', 'KOP', 9, 1, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'Belgam', 'BG', 230, 1, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(2, 'Belgam', 'BG', 230, 1, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(3, 'tt', 'tt', 1, 2, 3, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `employee`
+--
+
+CREATE TABLE `employee` (
+  `id` int(50) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `marathiName` varchar(200) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `primaryMobile` bigint(30) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `countryId` int(50) DEFAULT NULL,
+  `stateId` int(50) DEFAULT NULL,
+  `districtId` int(50) DEFAULT NULL,
+  `talukaId` int(50) DEFAULT NULL,
+  `villageId` int(50) DEFAULT NULL,
+  `pinCode` int(10) DEFAULT NULL,
+  `genderId` int(50) DEFAULT NULL,
+  `secondaryMobile` bigint(30) DEFAULT NULL,
+  `gstNumber` int(50) DEFAULT NULL,
+  `openingBalance` int(50) DEFAULT '0',
+  `crdrId` int(11) DEFAULT NULL,
+  `creditLimit` int(50) DEFAULT '0',
+  `birthDate` int(13) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `customercategoriesId` int(20) DEFAULT NULL,
+  `pancardNumber` varchar(20) DEFAULT NULL,
+  `adharcardNumber` bigint(30) DEFAULT NULL,
+  `sendSms` int(1) DEFAULT '0',
+  `sendwhatsappSms` int(1) DEFAULT '0',
+  `usertypeId` int(20) DEFAULT NULL,
+  `registrationDate` int(13) DEFAULT NULL,
+  `maritalstatusId` int(12) DEFAULT NULL,
+  `dateofjoining` int(13) DEFAULT NULL,
+  `roleId` int(12) DEFAULT NULL,
+  `bloodgroupId` int(12) DEFAULT NULL,
+  `refNumber` int(11) DEFAULT NULL,
+  `verificationNum` varchar(50) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) NOT NULL DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -895,17 +1020,25 @@ INSERT INTO `fuelbrand_master` (`fuelbrandId`, `fuelbrandName`, `is_default`, `i
 --
 
 CREATE TABLE `gender` (
-  `genderId` int(11) NOT NULL,
-  `gender` varchar(6) DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `gender`
 --
 
-INSERT INTO `gender` (`genderId`, `gender`) VALUES
-(1, 'Male'),
-(2, 'Female');
+INSERT INTO `gender` (`id`, `name`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Male', 0, 1, 0, 0, 0, 0, 0, 'A'),
+(2, 'Female', 0, 1, 0, 0, 0, 0, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -967,7 +1100,7 @@ CREATE TABLE `hsnsac` (
 --
 
 INSERT INTO `hsnsac` (`id`, `name`, `shortName`, `code`, `percentageValue`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'HSN1', 'hsn 1', 1, 0.00, 'ok', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
+(1, 'HSN1', 'hsn 1', 1, 10.00, 'ok', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1532,21 +1665,30 @@ INSERT INTO `makingcharges_master` (`makingchargesId`, `makingchargesName`, `mak
 -- --------------------------------------------------------
 
 --
--- Table structure for table `maritalstatus_master`
+-- Table structure for table `maritalstatus`
 --
 
-CREATE TABLE `maritalstatus_master` (
-  `maritalstatusId` int(20) NOT NULL,
-  `maritalstatus` varchar(50) NOT NULL
+CREATE TABLE `maritalstatus` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `maritalstatus_master`
+-- Dumping data for table `maritalstatus`
 --
 
-INSERT INTO `maritalstatus_master` (`maritalstatusId`, `maritalstatus`) VALUES
-(1, 'Married'),
-(2, 'Unmarried');
+INSERT INTO `maritalstatus` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Married', 'Married', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(2, 'Unmarried', 'Unmarried', 0, 1, 0, 0, 0, 0, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -1646,7 +1788,8 @@ CREATE TABLE `paymenttype` (
 
 INSERT INTO `paymenttype` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Cash', 'Cash Mode Payment.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(2, 'UPI', 'UPI', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(2, 'UPI', 'UPI', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(3, 'Cheque', 'Cheque', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1659,9 +1802,30 @@ CREATE TABLE `product` (
   `barcode` varchar(200) NOT NULL,
   `name` varchar(200) NOT NULL,
   `shortName` varchar(50) DEFAULT NULL,
+  `unitId` int(12) NOT NULL,
+  `openingStock` int(12) DEFAULT '0',
   `categoryId` int(11) DEFAULT NULL,
   `subcategoryId` int(11) DEFAULT NULL,
+  `purityId` int(12) DEFAULT NULL,
+  `maingroupId` int(12) DEFAULT NULL,
+  `groupId` int(12) DEFAULT NULL,
+  `subgroupId` int(12) DEFAULT NULL,
+  `companyId` int(12) DEFAULT NULL,
   `colorId` int(11) DEFAULT NULL,
+  `sizeId` int(12) DEFAULT NULL,
+  `shapeId` int(12) DEFAULT NULL,
+  `hsnsacId` int(12) DEFAULT NULL,
+  `gstId` int(12) DEFAULT NULL,
+  `warehouseId` int(12) DEFAULT NULL,
+  `weight` decimal(18,2) DEFAULT NULL,
+  `hight` decimal(18,2) DEFAULT NULL,
+  `storageLocation` varchar(200) DEFAULT NULL,
+  `purchaseRate` decimal(18,2) DEFAULT '0.00',
+  `mrpRate` decimal(18,2) DEFAULT '0.00',
+  `minsalesRate` decimal(18,2) DEFAULT '0.00',
+  `salesRate` decimal(18,2) DEFAULT '0.00',
+  `minstockLevel` int(12) DEFAULT '0',
+  `maxstockLevel` int(12) DEFAULT '0',
   `description` varchar(200) DEFAULT NULL,
   `createdDttm` int(12) DEFAULT NULL,
   `createdBy` int(4) DEFAULT NULL,
@@ -1677,11 +1841,8 @@ CREATE TABLE `product` (
 -- Dumping data for table `product`
 --
 
-INSERT INTO `product` (`id`, `barcode`, `name`, `shortName`, `categoryId`, `subcategoryId`, `colorId`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, '12', 'ring', '12', 1, 1, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(2, '3232', 'ring one', '3232', 1, 1, 1, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(3, '11', 'stone', '11', 2, 2, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(4, '123456789', 'diamond', '123456789', 2, 3, 2, NULL, NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A');
+INSERT INTO `product` (`id`, `barcode`, `name`, `shortName`, `unitId`, `openingStock`, `categoryId`, `subcategoryId`, `purityId`, `maingroupId`, `groupId`, `subgroupId`, `companyId`, `colorId`, `sizeId`, `shapeId`, `hsnsacId`, `gstId`, `warehouseId`, `weight`, `hight`, `storageLocation`, `purchaseRate`, `mrpRate`, `minsalesRate`, `salesRate`, `minstockLevel`, `maxstockLevel`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, '54545', 'test', 'test', 1, 0, 1, 1, 1, NULL, NULL, NULL, NULL, 1, NULL, NULL, NULL, NULL, NULL, '0.00', '0.00', NULL, '20.50', '25.00', '26.00', '27.50', 0, 0, NULL, 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -1724,7 +1885,8 @@ INSERT INTO `productgroup` (`id`, `name`, `shortName`, `description`, `createdDt
 (15, 'zolo', 'zl', 'nice one', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (16, 'sadasd', 's', 'ssssswertyuiopuyhtgrfeda', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
 (17, 'zolo', 'zl', 'splendidi', NULL, NULL, NULL, NULL, 0, NULL, NULL, 'A'),
-(18, 'kk', 'kk', 'k', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
+(18, 'kk', 'kk', 'k', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(19, 'z', 'z', 'z', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -1754,12 +1916,13 @@ CREATE TABLE `productmaingroup` (
 INSERT INTO `productmaingroup` (`id`, `name`, `shortName`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'AA', 'aa', 'ok', NULL, NULL, 2147483647, 1, 0, 1, 2147483647, 'A'),
 (2, 'BB', 'bb', 'description', NULL, NULL, NULL, NULL, 0, 1, 2147483647, 'A'),
-(3, 'my string', 'vvvbbbb', 'testbbb', 0, 0, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(3, 'my string', 'ny string', 'test.', 0, 0, 2147483647, 1, 0, 1, 2147483647, 'A'),
 (4, 'ss', 'ss', 'ss', NULL, NULL, NULL, NULL, 1, 1, 2147483647, 'A'),
 (5, 'harsh', 'test', 'ok.', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A'),
 (6, 'ttt', 'ttt', 'thh', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A'),
 (7, 'my str', 'str.', 'ok.', 2147483647, 1, 2147483647, 1, 1, 1, 2147483647, 'A'),
-(8, 'dd', 'dd', 'kop', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
+(8, 'dd', 'dd', 'kop', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A'),
+(9, 'cfesr', 'cfesr', 'nnn', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -2205,33 +2368,30 @@ INSERT INTO `rate_master` (`rateId`, `fkcategoryId`, `fksubcategoryId`, `fkprodu
 -- --------------------------------------------------------
 
 --
--- Table structure for table `role_master`
+-- Table structure for table `role`
 --
 
-CREATE TABLE `role_master` (
-  `roleId` int(200) NOT NULL,
-  `roleName` varchar(255) CHARACTER SET latin1 NOT NULL,
-  `discription` varchar(200) CHARACTER SET latin1 NOT NULL,
-  `is_default` tinyint(4) DEFAULT '0',
-  `is_on` tinyint(4) DEFAULT '1',
-  `is_active` tinyint(4) DEFAULT '1',
-  `created_date` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `modified_date` datetime DEFAULT NULL,
-  `modified_by` int(11) DEFAULT NULL,
-  `deleted_date` datetime DEFAULT NULL,
-  `deleted_by` int(11) DEFAULT NULL,
-  `delete_remark` varchar(200) CHARACTER SET latin1 DEFAULT NULL,
-  `last_changed` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+CREATE TABLE `role` (
+  `id` int(11) NOT NULL,
+  `name` varchar(255) CHARACTER SET latin1 NOT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `role_master`
+-- Dumping data for table `role`
 --
 
-INSERT INTO `role_master` (`roleId`, `roleName`, `discription`, `is_default`, `is_on`, `is_active`, `created_date`, `created_by`, `modified_date`, `modified_by`, `deleted_date`, `deleted_by`, `delete_remark`, `last_changed`) VALUES
-(1, 'user', ' User work', 0, 1, 1, '2019-04-27 09:37:18', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 07:37:18'),
-(2, 'admin', ' Handdle  The  System', 0, 1, 1, '2019-04-27 09:38:06', 1, NULL, NULL, NULL, NULL, NULL, '2019-04-27 07:38:06');
+INSERT INTO `role` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'User', 'User', 0, 0, 0, 0, 0, 0, 0, 'A'),
+(2, 'Admin', 'Admin', 0, 0, 0, 0, 0, 0, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -2654,7 +2814,8 @@ INSERT INTO `size` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `up
 (1, 'L', 'L', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'M', 'm', 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A'),
 (3, 'M', 'Meduim.', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(4, 'hgu', 'hgu', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(4, 'hgu', 'hgu', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(5, 'f', 'f', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2685,7 +2846,7 @@ CREATE TABLE `state` (
 INSERT INTO `state` (`id`, `name`, `shortName`, `code`, `countryId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Maharashtra', 'MH', 9, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'Karnataka', 'KA', 23, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
-(3, 'America', 'AMC', 20, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(3, 'America', 'AMC', 20, 2, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2754,8 +2915,61 @@ CREATE TABLE `subcategory` (
 INSERT INTO `subcategory` (`id`, `name`, `description`, `categoryId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'L', 'L', 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'M', 'm', 2, 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
-(3, 'test', 'test', 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
-(4, 'bnn', 'ok', 4, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
+(3, 'test', 'test', 2, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(4, 'bnn', 'ok', 4, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(5, 'kk', 'ok', 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(6, 'vv', 'o', 10, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `supplier`
+--
+
+CREATE TABLE `supplier` (
+  `id` int(50) NOT NULL,
+  `name` varchar(255) DEFAULT NULL,
+  `marathiName` varchar(200) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL,
+  `primaryMobile` bigint(30) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `countryId` int(50) DEFAULT NULL,
+  `stateId` int(50) DEFAULT NULL,
+  `districtId` int(50) DEFAULT NULL,
+  `talukaId` int(50) DEFAULT NULL,
+  `villageId` int(50) DEFAULT NULL,
+  `pinCode` int(10) DEFAULT NULL,
+  `genderId` int(50) DEFAULT NULL,
+  `secondaryMobile` bigint(30) DEFAULT NULL,
+  `gstNumber` int(50) DEFAULT NULL,
+  `openingBalance` int(50) DEFAULT '0',
+  `crdrId` int(11) DEFAULT NULL,
+  `creditLimit` int(50) DEFAULT '0',
+  `birthDate` int(13) DEFAULT NULL,
+  `photo` varchar(200) DEFAULT NULL,
+  `customercategoriesId` int(20) DEFAULT NULL,
+  `pancardNumber` varchar(20) DEFAULT NULL,
+  `adharcardNumber` bigint(30) DEFAULT NULL,
+  `sendSms` int(1) DEFAULT '0',
+  `sendwhatsappSms` int(1) DEFAULT '0',
+  `usertypeId` int(20) DEFAULT NULL,
+  `registrationDate` int(13) DEFAULT NULL,
+  `createdDttm` int(12) DEFAULT NULL,
+  `createdBy` int(4) DEFAULT NULL,
+  `updatedDttm` int(12) DEFAULT NULL,
+  `updatedBy` int(4) DEFAULT NULL,
+  `isDeleted` int(1) NOT NULL DEFAULT '0',
+  `deletedBy` int(4) DEFAULT NULL,
+  `deletedDttm` int(12) DEFAULT NULL,
+  `status` varchar(3) DEFAULT 'A'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `supplier`
+--
+
+INSERT INTO `supplier` (`id`, `name`, `marathiName`, `address`, `primaryMobile`, `email`, `countryId`, `stateId`, `districtId`, `talukaId`, `villageId`, `pinCode`, `genderId`, `secondaryMobile`, `gstNumber`, `openingBalance`, `crdrId`, `creditLimit`, `birthDate`, `photo`, `customercategoriesId`, `pancardNumber`, `adharcardNumber`, `sendSms`, `sendwhatsappSms`, `usertypeId`, `registrationDate`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'Harsh', 'Devne', 'Walivde', 1234567890, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 2147483647, 'null', NULL, NULL, NULL, 0, 0, NULL, 2147483647, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2874,9 +3088,10 @@ CREATE TABLE `unit` (
 INSERT INTO `unit` (`id`, `name`, `shortName`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'GM', 'gm', NULL, NULL, 2147483647, 1, 0, NULL, 0, 'A'),
 (2, 'BBv', 'bbd', NULL, NULL, 2147483647, 1, 0, 1, 2147483647, 'A'),
-(8, 'mm', 'ok', 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(8, 'mm', 'ok', 2147483647, 1, 2147483647, 1, 1, NULL, 0, 'A'),
 (9, 'Kh', 'Kh', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
-(10, 'ff', 'fff', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
+(10, 'ff', 'fff', 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(11, 'car', 'car', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -2980,8 +3195,9 @@ CREATE TABLE `usertype` (
 
 INSERT INTO `usertype` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Admin', 'Admin', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
-(2, 'Customer', 'Customer', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
-(3, 'Employee', 'Employee', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(2, 'Customer', 'Customer', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(3, 'Employee', 'Employee', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(4, 'fff', NULL, 2147483647, 1, NULL, NULL, 1, 1, 2147483647, 'A');
 
 -- --------------------------------------------------------
 
@@ -3091,7 +3307,7 @@ CREATE TABLE `village` (
 
 INSERT INTO `village` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `districtId`, `talukaId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Kolhapur', 'KP', 9, 1, 1, 1, 1, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
-(2, 'Khadaklat', 'KH', 230, 1, 2, 2, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(2, 'Khadaklat', 'KH', 230, 1, 2, 2, 2, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -3170,7 +3386,8 @@ CREATE TABLE `warehouse` (
 INSERT INTO `warehouse` (`id`, `name`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'bb', NULL, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
 (3, 'gh', 'df', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
-(4, 'vbfdg', 'vbfdg', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
+(4, 'vbfdg', 'vbfdg', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(5, 'vv', 'vv', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 --
 -- Indexes for dumped tables
@@ -3186,6 +3403,12 @@ ALTER TABLE `account_master`
 -- Indexes for table `bank`
 --
 ALTER TABLE `bank`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `bloodgroup`
+--
+ALTER TABLE `bloodgroup`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3225,6 +3448,12 @@ ALTER TABLE `crdr`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `customer`
+--
+ALTER TABLE `customer`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `customercategories`
 --
 ALTER TABLE `customercategories`
@@ -3237,6 +3466,18 @@ ALTER TABLE `district`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `employee`
+--
+ALTER TABLE `employee`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gender`
+--
+ALTER TABLE `gender`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `gst`
 --
 ALTER TABLE `gst`
@@ -3246,6 +3487,12 @@ ALTER TABLE `gst`
 -- Indexes for table `hsnsac`
 --
 ALTER TABLE `hsnsac`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `maritalstatus`
+--
+ALTER TABLE `maritalstatus`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3291,6 +3538,12 @@ ALTER TABLE `rate`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `role`
+--
+ALTER TABLE `role`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `shape`
 --
 ALTER TABLE `shape`
@@ -3312,6 +3565,12 @@ ALTER TABLE `state`
 -- Indexes for table `subcategory`
 --
 ALTER TABLE `subcategory`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `supplier`
+--
+ALTER TABLE `supplier`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -3364,19 +3623,25 @@ ALTER TABLE `warehouse`
 -- AUTO_INCREMENT for table `bank`
 --
 ALTER TABLE `bank`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT for table `bloodgroup`
+--
+ALTER TABLE `bloodgroup`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `color`
 --
 ALTER TABLE `color`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `company`
@@ -3388,19 +3653,25 @@ ALTER TABLE `company`
 -- AUTO_INCREMENT for table `counter`
 --
 ALTER TABLE `counter`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `country`
 --
 ALTER TABLE `country`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `crdr`
 --
 ALTER TABLE `crdr`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `customer`
+--
+ALTER TABLE `customer`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `customercategories`
@@ -3412,7 +3683,19 @@ ALTER TABLE `customercategories`
 -- AUTO_INCREMENT for table `district`
 --
 ALTER TABLE `district`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `employee`
+--
+ALTER TABLE `employee`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `gender`
+--
+ALTER TABLE `gender`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `gst`
@@ -3427,28 +3710,34 @@ ALTER TABLE `hsnsac`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+-- AUTO_INCREMENT for table `maritalstatus`
+--
+ALTER TABLE `maritalstatus`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `paymenttype`
 --
 ALTER TABLE `paymenttype`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `product`
 --
 ALTER TABLE `product`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `productgroup`
 --
 ALTER TABLE `productgroup`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `productmaingroup`
 --
 ALTER TABLE `productmaingroup`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `productsubgroup`
@@ -3469,6 +3758,12 @@ ALTER TABLE `rate`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `role`
+--
+ALTER TABLE `role`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `shape`
 --
 ALTER TABLE `shape`
@@ -3478,7 +3773,7 @@ ALTER TABLE `shape`
 -- AUTO_INCREMENT for table `size`
 --
 ALTER TABLE `size`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `state`
@@ -3490,7 +3785,13 @@ ALTER TABLE `state`
 -- AUTO_INCREMENT for table `subcategory`
 --
 ALTER TABLE `subcategory`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `supplier`
+--
+ALTER TABLE `supplier`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `taluka`
@@ -3502,7 +3803,7 @@ ALTER TABLE `taluka`
 -- AUTO_INCREMENT for table `unit`
 --
 ALTER TABLE `unit`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `userregistration`
@@ -3520,7 +3821,7 @@ ALTER TABLE `userregistration_master`
 -- AUTO_INCREMENT for table `usertype`
 --
 ALTER TABLE `usertype`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `village`
@@ -3532,7 +3833,7 @@ ALTER TABLE `village`
 -- AUTO_INCREMENT for table `warehouse`
 --
 ALTER TABLE `warehouse`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
