@@ -109,11 +109,19 @@
     "dataSource": "jewellerydbDS",
     "public": true
   },
+  "customer": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
   "customercategories": {
     "dataSource": "jewellerydbDS",
     "public": true
   },
   "crdr": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "gender": {
     "dataSource": "jewellerydbDS",
     "public": true
   },
@@ -124,7 +132,26 @@
   "userregistration": {
     "dataSource": "jewellerydbDS",
     "public": true
+  },
+  "supplier": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "employee": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "bloodgroup": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "role": {
+    "dataSource": "jewellerydbDS",
+    "public": true
+  },
+  "maritalstatus": {
+    "dataSource": "jewellerydbDS",
+    "public": true
   }
-  
 
 }
