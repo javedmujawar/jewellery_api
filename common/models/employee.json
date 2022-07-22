@@ -13,7 +13,7 @@
       },
       "marathiName": {
         "type": "string",
-        "required": false
+        "required": true
       },
       "primaryMobile": {
         "type": "number",
@@ -29,7 +29,7 @@
       },
       "birthDate": {
         "type": "number",
-        "required": true
+        "required": false
       },
       "genderId": {
         "type": "number",
@@ -42,28 +42,10 @@
       "email": {
         "type": "string",
         "required": false
-      },        
-      "gstNumber": {
-        "type": "number",
-        "required": false
-      },
-      "openingBalance": {
-        "type": "number",       
-        "default": 0,
-        "required": false
-      },
-      "creditLimit": {
-        "type": "number",       
-        "default": 0,
-        "required": false
-      },
-      "crdrId": {
-        "type": "number",
-        "required": false
-      },     
+      }, 
       "countryId": {
         "type": "number",
-        "required": false
+        "required": true
       },
       "stateId": {
         "type": "number",
@@ -92,11 +74,7 @@
       "adharcardNumber": {
         "type": "number",
         "required": false
-      },
-      "customercategoriesId": {
-        "type": "number",
-        "required": false
-      }, 
+      },      
       "usertypeId": {
         "type": "number",
         "required": false

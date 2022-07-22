@@ -10,6 +10,18 @@
             "type": "number",
             "required": true
           },
+          "customerId": {
+            "type": "number",
+            "required": false
+          },
+          "supplierId": {
+            "type": "number",
+            "required": false
+          },
+          "employeeId": {
+            "type": "number",
+            "required": false
+          },
           "userName": {
             "type": "string",
             "required": true
@@ -32,7 +44,8 @@
         "required": true
       },
       "sendSms": {
-        "type": "string",
+        "type": "number",
+        "default": 0,
         "required": false
       },
       "createdDttm": {

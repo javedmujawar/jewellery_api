@@ -65,6 +65,7 @@
         "type": "number",
         "required": false
       },
+      
       "stateId": {
         "type": "number",
         "required": false
