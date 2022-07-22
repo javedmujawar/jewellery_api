@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2022 at 02:00 PM
+-- Generation Time: Jul 22, 2022 at 03:32 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 5.6.37
 
@@ -87,7 +87,8 @@ INSERT INTO `bank` (`id`, `name`, `shortName`, `address`, `createdDttm`, `create
 (1, 'UCO', 'UCO', 'Shivaji University , Kolhapur.', 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
 (2, 'Bank of India', 'B.O.I', 'Rajarampuri, Kolhapur-416008', 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
 (3, 'yu', 'yu', NULL, 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
-(4, 'r', 'r', NULL, 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
+(4, 'r', 'r', 'kk', 2147483647, 1, 2147483647, 1, 0, NULL, 0, 'A'),
+(5, 'hh', 'hh', 'kk', 2147483647, 1, NULL, NULL, 0, NULL, 0, 'A');
 
 -- --------------------------------------------------------
 
@@ -434,7 +435,8 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `name`, `marathiName`, `address`, `primaryMobile`, `email`, `countryId`, `stateId`, `districtId`, `talukaId`, `villageId`, `pinCode`, `genderId`, `secondaryMobile`, `gstNumber`, `openingBalance`, `crdrId`, `creditLimit`, `birthDate`, `photo`, `customercategoriesId`, `pancardNumber`, `adharcardNumber`, `sendSms`, `sendwhatsappSms`, `usertypeId`, `registrationDate`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'Rashid Kalawant', 'Rashid', 'Jawahar Nagar,Kolhapur', 7385207857, 'ar.rashid@gmail.com', 1, 2, 2, 2, 2, 416008, 1, 8956970105, NULL, 0, 2, 0, 2147483647, 'null', 12, 'BXDPK3974N', 306058571074, 0, 1, 2, 2147483647, 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A');
+(1, 'Rashid Kalawant', 'Rashid', 'Jawahar Nagar,Kolhapur', 7385207857, 'ar.rashid@gmail.com', 1, 2, 2, 2, 2, 416008, 1, 8956970105, NULL, 0, 2, 0, 2147483647, 'null', 12, 'BXDPK3974N', 306058571074, 0, 1, 2, 2147483647, 2147483647, 1, 2147483647, 1, 0, 1, 2147483647, 'A'),
+(2, 'Aniket', 'Aniket', 'Mumbai.', 6523102356, NULL, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 2, 0, 2147483647, 'null', NULL, NULL, NULL, 1, 0, NULL, 2147483647, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -645,7 +647,7 @@ CREATE TABLE `district` (
   `shortName` varchar(50) DEFAULT NULL,
   `code` int(12) NOT NULL,
   `countryId` int(12) NOT NULL,
-  `stateId` int(12) NOT NULL,
+  `stateId` int(12) DEFAULT NULL,
   `createdDttm` int(12) DEFAULT NULL,
   `createdBy` int(4) DEFAULT NULL,
   `updatedDttm` int(12) DEFAULT NULL,
@@ -663,7 +665,8 @@ CREATE TABLE `district` (
 INSERT INTO `district` (`id`, `name`, `shortName`, `code`, `countryId`, `stateId`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 'Kolhapur', 'KOP', 9, 1, 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
 (2, 'Belgam', 'BG', 230, 1, 2, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
-(3, 'tt', 'tt', 1, 2, 3, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(3, 'tt', 'tt', 1, 2, 3, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
+(4, 'gg', 'gg', 4554, 1, NULL, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -686,13 +689,8 @@ CREATE TABLE `employee` (
   `pinCode` int(10) DEFAULT NULL,
   `genderId` int(50) DEFAULT NULL,
   `secondaryMobile` bigint(30) DEFAULT NULL,
-  `gstNumber` int(50) DEFAULT NULL,
-  `openingBalance` int(50) DEFAULT '0',
-  `crdrId` int(11) DEFAULT NULL,
-  `creditLimit` int(50) DEFAULT '0',
   `birthDate` int(13) DEFAULT NULL,
   `photo` varchar(200) DEFAULT NULL,
-  `customercategoriesId` int(20) DEFAULT NULL,
   `pancardNumber` varchar(20) DEFAULT NULL,
   `adharcardNumber` bigint(30) DEFAULT NULL,
   `sendSms` int(1) DEFAULT '0',
@@ -714,6 +712,13 @@ CREATE TABLE `employee` (
   `deletedDttm` int(12) DEFAULT NULL,
   `status` varchar(3) DEFAULT 'A'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `employee`
+--
+
+INSERT INTO `employee` (`id`, `name`, `marathiName`, `address`, `primaryMobile`, `email`, `countryId`, `stateId`, `districtId`, `talukaId`, `villageId`, `pinCode`, `genderId`, `secondaryMobile`, `birthDate`, `photo`, `pancardNumber`, `adharcardNumber`, `sendSms`, `sendwhatsappSms`, `usertypeId`, `registrationDate`, `maritalstatusId`, `dateofjoining`, `roleId`, `bloodgroupId`, `refNumber`, `verificationNum`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 'ggg', 'ggg', 'kolhapur', 9730592066, NULL, 1, 0, 0, 0, 0, NULL, 1, NULL, 2147483647, 'null', NULL, 123456789000, 0, 1, 2, 2147483647, 1, 2147483647, NULL, 5, 2124, '43543456', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2321,7 +2326,8 @@ CREATE TABLE `rate` (
 
 INSERT INTO `rate` (`id`, `categoryId`, `subcategoryId`, `productId`, `rateOne`, `rateTen`, `purityId`, `rateDate`, `description`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
 (1, 1, 1, 1, 1, 1, 1, '2022-07-16', '', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A'),
-(2, 1, 1, 1, 2, 2, 2, '2022-07-01T09:24:54.', 'ok', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(2, 1, 1, 1, 2, 2, 2, '1658496554444', 'ok', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A'),
+(3, 1, 1, 1, 1, 2, 2, '1658496639577', 'k', 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -2969,7 +2975,7 @@ CREATE TABLE `supplier` (
 --
 
 INSERT INTO `supplier` (`id`, `name`, `marathiName`, `address`, `primaryMobile`, `email`, `countryId`, `stateId`, `districtId`, `talukaId`, `villageId`, `pinCode`, `genderId`, `secondaryMobile`, `gstNumber`, `openingBalance`, `crdrId`, `creditLimit`, `birthDate`, `photo`, `customercategoriesId`, `pancardNumber`, `adharcardNumber`, `sendSms`, `sendwhatsappSms`, `usertypeId`, `registrationDate`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 'Harsh', 'Devne', 'Walivde', 1234567890, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, NULL, 0, 2147483647, 'null', NULL, NULL, NULL, 0, 0, NULL, 2147483647, 2147483647, 1, NULL, NULL, 0, NULL, NULL, 'A');
+(1, 'Harsh', 'Devne', 'Walivde', 7385207857, NULL, 1, 0, 0, 0, 0, NULL, NULL, 54545, NULL, 0, NULL, 0, 2147483647, 'null', NULL, NULL, NULL, 0, 0, NULL, 2147483647, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -3102,12 +3108,15 @@ INSERT INTO `unit` (`id`, `name`, `shortName`, `createdDttm`, `createdBy`, `upda
 CREATE TABLE `userregistration` (
   `id` int(20) NOT NULL,
   `userTypeId` int(20) NOT NULL,
+  `customerId` int(12) DEFAULT NULL,
+  `supplierId` int(12) DEFAULT NULL,
+  `employeeId` int(12) DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
-  `mobileNumber` int(20) DEFAULT NULL,
+  `mobileNumber` bigint(20) DEFAULT NULL,
   `userName` varchar(50) DEFAULT NULL,
   `password` varchar(500) DEFAULT NULL,
-  `sendSms` varchar(5) DEFAULT 'false',
+  `sendSms` int(1) DEFAULT '0',
   `createdDttm` int(12) DEFAULT NULL,
   `createdBy` int(4) DEFAULT NULL,
   `updatedDttm` int(12) DEFAULT NULL,
@@ -3122,8 +3131,8 @@ CREATE TABLE `userregistration` (
 -- Dumping data for table `userregistration`
 --
 
-INSERT INTO `userregistration` (`id`, `userTypeId`, `photo`, `email`, `mobileNumber`, `userName`, `password`, `sendSms`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
-(1, 3, 'null', 'ar@gmail.com', 8956620, 'Admin', '1234', 'true', 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
+INSERT INTO `userregistration` (`id`, `userTypeId`, `customerId`, `supplierId`, `employeeId`, `photo`, `email`, `mobileNumber`, `userName`, `password`, `sendSms`, `createdDttm`, `createdBy`, `updatedDttm`, `updatedBy`, `isDeleted`, `deletedBy`, `deletedDttm`, `status`) VALUES
+(1, 3, 1, NULL, 1, 'null', 'ar@gmail.com', 895662012, 'Admin', '1234', 1, 2147483647, 1, 2147483647, 1, 0, NULL, NULL, 'A');
 
 -- --------------------------------------------------------
 
@@ -3623,7 +3632,7 @@ ALTER TABLE `warehouse`
 -- AUTO_INCREMENT for table `bank`
 --
 ALTER TABLE `bank`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `bloodgroup`
@@ -3671,7 +3680,7 @@ ALTER TABLE `crdr`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `customercategories`
@@ -3683,13 +3692,13 @@ ALTER TABLE `customercategories`
 -- AUTO_INCREMENT for table `district`
 --
 ALTER TABLE `district`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `employee`
 --
 ALTER TABLE `employee`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `gender`
@@ -3755,7 +3764,7 @@ ALTER TABLE `purity`
 -- AUTO_INCREMENT for table `rate`
 --
 ALTER TABLE `rate`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `role`
